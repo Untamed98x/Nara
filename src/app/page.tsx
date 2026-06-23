@@ -223,30 +223,13 @@ function HeroSection() {
 
       {/* Hero visual card */}
       <div className="relative z-10 mt-16 w-full max-w-4xl px-4">
-        <div className="relative rounded-2xl border-2 border-ink-black shadow-hard overflow-hidden bg-nara-green aspect-video flex items-center justify-center">
-          {/* Abstract Memphis illustration */}
-          <svg viewBox="0 0 800 450" className="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="800" height="450" fill="#2D6A6A" />
-            {/* Dots pattern */}
-            {Array.from({ length: 12 }).map((_, i) =>
-              Array.from({ length: 7 }).map((_, j) => (
-                <circle key={`${i}-${j}`} cx={40 + i * 66} cy={40 + j * 62} r="3" fill="rgba(255,255,255,0.15)" />
-              ))
-            )}
-            {/* Big circle */}
-            <circle cx="200" cy="225" r="120" fill="none" stroke="#4DB6AC" strokeWidth="40" opacity="0.3" />
-            {/* Triangle */}
-            <polygon points="580,80 700,280 460,280" fill="#FFD54F" opacity="0.5" stroke="#1A1A1A" strokeWidth="3" />
-            {/* Square */}
-            <rect x="560" y="300" width="100" height="100" fill="#FF7F67" opacity="0.6" stroke="#1A1A1A" strokeWidth="3" transform="rotate(10 610 350)" />
-            {/* Text placeholder */}
-            <text x="400" y="210" textAnchor="middle" fill="white" fontSize="36" fontWeight="900" fontFamily="sans-serif">Nara Private Academy</text>
-            <text x="400" y="260" textAnchor="middle" fill="#FFD54F" fontSize="20" fontFamily="sans-serif">Kelas Kecil · Tutor Berpengalaman · Harga Terjangkau</text>
-            {/* Stars */}
-            <text x="120" y="80" fill="#FFD54F" fontSize="36">★</text>
-            <text x="660" y="120" fill="#FF7F67" fontSize="28">★</text>
-            <text x="350" y="380" fill="rgba(255,255,255,0.4)" fontSize="48">✦</text>
-          </svg>
+        <div className="relative rounded-2xl border-2 border-ink-black shadow-hard overflow-hidden bg-nara-green aspect-video">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSQhrLLQpAjDoNTmJAO6hyMgH4xhBU-e_Em761yXyYI8pQ0VLMInLaWK2iBo2JIATxTizaPk_yF54YU40LmP8WJhuwcXQjmuLeorPwNKT7G1GrWiW6b3BTypOpTY9KFGresmpkT7tYjHFaRMCNtmv6HLY3zvyAq0ECuHJRPVdB5qNZC4RrUo5w7GqyI7DHt5g-qwA-Tk21TELDoT-EpaY72dSARD3VHfkeaaCY2Poj9C3xInQ1-jSDNzQvEH6Rf0h6R8pNoci4hZJg"
+            alt="Suasana belajar di Nara Private Academy — kelas kecil, suasana hangat"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </section>
@@ -464,21 +447,13 @@ function WhyNaraSection() {
         {/* Visual column */}
         <div className="w-full md:w-1/2 relative">
           <div className="absolute -top-4 -left-4 w-full h-full border-4 border-spark-teal rounded-2xl rotate-3 pointer-events-none" />
-          <div className="relative bg-nara-green border-4 border-ink-black rounded-2xl overflow-hidden shadow-hard aspect-square flex items-center justify-center">
-            <svg viewBox="0 0 400 400" className="w-full h-full" aria-hidden="true">
-              <rect width="400" height="400" fill="#2D6A6A" />
-              <circle cx="200" cy="160" r="70" fill="#F9F6E5" opacity="0.15" />
-              <text x="200" y="155" textAnchor="middle" fill="white" fontSize="72">👩‍🏫</text>
-              <text x="200" y="260" textAnchor="middle" fill="white" fontSize="20" fontWeight="700" fontFamily="sans-serif">Tutor Bersertifikasi</text>
-              <text x="200" y="290" textAnchor="middle" fill="#FFD54F" fontSize="14" fontFamily="sans-serif">Sabar · Kreatif · Menyenangkan</text>
-              {/* Stars */}
-              {[60, 100, 140, 180, 220].map((x, i) => (
-                <text key={i} x={x} y="340" fill="#FFD54F" fontSize="20" textAnchor="middle">★</text>
-              ))}
-              {/* Circles deco */}
-              <circle cx="50" cy="50" r="25" fill="none" stroke="#4DB6AC" strokeWidth="4" />
-              <circle cx="350" cy="350" r="30" fill="none" stroke="#FF7F67" strokeWidth="4" />
-            </svg>
+          <div className="relative border-4 border-ink-black rounded-2xl overflow-hidden shadow-hard aspect-square">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtaoU5laBfsVI_sjwGmulfMT4nTUra2q0FXIdGo4hPjazbU5J6tBZi2eoib9GqagxUH49vA3s5s4g3TBYWBxa4FJi-2PZpgXGJR31XJtkWILOEewsONRlNhvqRKGm1I4066Cfj_eI2v2-Wte-q_I7oAOOzyzEfH4GotCrY9iyphiO6ofUtI2NEix5iaAVejMAGHFKncqud1bIGNzlBKFQEZhIIhxx6AaK5-Bdq7OE4x0WPDPWVLHDbs9FZXkc2HaHJh2rn_kOHXoXw"
+              alt="Tutor Nara bersama murid — suasana belajar yang hangat dan personal"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
