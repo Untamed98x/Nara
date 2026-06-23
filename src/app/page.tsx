@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 // ─── Nara Private Academy — Memphis Modern redesign ───────────────────────────
 // Design system: Lexend · nara-green #2D6A6A · spark-coral #FF7F67
 // spark-teal #4DB6AC · spark-yellow #FFD54F · ink-black #1A1A1A
@@ -223,12 +225,14 @@ function HeroSection() {
 
       {/* Hero visual card */}
       <div className="relative z-10 mt-16 w-full max-w-4xl px-4">
-        <div className="relative rounded-2xl border-2 border-ink-black shadow-hard overflow-hidden bg-nara-green aspect-video">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSQhrLLQpAjDoNTmJAO6hyMgH4xhBU-e_Em761yXyYI8pQ0VLMInLaWK2iBo2JIATxTizaPk_yF54YU40LmP8WJhuwcXQjmuLeorPwNKT7G1GrWiW6b3BTypOpTY9KFGresmpkT7tYjHFaRMCNtmv6HLY3zvyAq0ECuHJRPVdB5qNZC4RrUo5w7GqyI7DHt5g-qwA-Tk21TELDoT-EpaY72dSARD3VHfkeaaCY2Poj9C3xInQ1-jSDNzQvEH6Rf0h6R8pNoci4hZJg"
+        <div className="relative rounded-2xl border-2 border-ink-black shadow-hard overflow-hidden bg-nara-beige aspect-video">
+          <Image
+            src="/hero-illustration.png"
             alt="Suasana belajar di Nara Private Academy — kelas kecil, suasana hangat"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 896px"
           />
         </div>
       </div>
