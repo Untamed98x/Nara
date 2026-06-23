@@ -2,49 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --cream: #F5EFE6;
-  --teal: #5A8A8A;
-  --teal-dark: #3D6666;
-  --brown: #8B6F47;
-  --coral: #E8917D;
-  --mustard: #E5B85C;
-  --sage: #A8C66C;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--cream);
-  color: #2D2D2D;
+  background-color: #fdfae9;
+  color: #1c1c12;
+  overflow-x: hidden;
 }
 
-/* Memphis dot grid pattern utility */
-.memphis-dots {
-  background-image: radial-gradient(circle, #8B6F47 1.5px, transparent 1.5px);
-  background-size: 22px 22px;
-}
-
-/* Memphis diagonal stripes */
-.memphis-stripes {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 8px,
-    rgba(90, 138, 138, 0.12) 8px,
-    rgba(90, 138, 138, 0.12) 16px
-  );
-}
-
-/* Memphis checkerboard */
-.memphis-check {
+/* Memphis dual dot-grid (teal + coral dots at 20px offset) */
+.memphis-pattern {
+  background-color: #fdfae9;
   background-image:
-    linear-gradient(45deg, rgba(229, 184, 92, 0.15) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(229, 184, 92, 0.15) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(229, 184, 92, 0.15) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(229, 184, 92, 0.15) 75%);
-  background-size: 18px 18px;
-  background-position: 0 0, 0 9px, 9px -9px, -9px 0px;
+    radial-gradient(#2d6a6a 1.5px, transparent 1.5px),
+    radial-gradient(#ff7f67 1px, #fdfae9 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+  background-attachment: fixed;
 }
+
+/* Hard graphic shadows — solid black offset, no blur */
+.shadow-hard {
+  box-shadow: 6px 6px 0px 0px rgba(26, 26, 26, 1);
+}
+.shadow-hard-sm {
+  box-shadow: 4px 4px 0px 0px rgba(26, 26, 26, 1);
+}
+.shadow-hard-lg {
+  box-shadow: 8px 8px 0px 0px rgba(26, 26, 26, 1);
+}
+
+/* Button press: translates + collapses shadow */
+.btn-press:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px 0px rgba(26, 26, 26, 1) !important;
+}
+
+/* Floating Memphis decorations */
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.floating-shape   { animation: float 6s ease-in-out infinite; }
+.floating-shape-2 { animation: float 8s ease-in-out infinite; animation-delay: -2s; }
+.floating-shape-3 { animation: float 7s ease-in-out infinite; animation-delay: -4s; }

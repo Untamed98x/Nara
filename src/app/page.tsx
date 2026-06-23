@@ -1,1373 +1,716 @@
-// =============================================================
-// NARA PRIVATE ACADEMY — Memphis-Style Landing Page
-// Brand palette: Cream #F5EFE6 | Teal #5A8A8A | Brown #8B6F47
-// Accents: Coral #E8917D | Mustard #E5B85C | Sage #A8C66C
-// =============================================================
+// ─── Nara Private Academy — Memphis Modern redesign ───────────────────────────
+// Design system: Lexend · nara-green #2D6A6A · spark-coral #FF7F67
+// spark-teal #4DB6AC · spark-yellow #FFD54F · ink-black #1A1A1A
+// Hard shadows · 2–4px solid borders · Memphis dual-dot background
+// ──────────────────────────────────────────────────────────────────────────────
 
-// ------------------------------------------------------------------
-// MEMPHIS DECORATIVE PRIMITIVES
-// ------------------------------------------------------------------
+// ─── SVG SHAPES ────────────────────────────────────────────────────────────────
 
-function Squiggle({
-  color = '#5A8A8A',
-  width = 120,
-  className = '',
-}: {
-  color?: string
-  width?: number
-  className?: string
-}) {
+function ShapeCircle({ color, size = 60 }: { color: string; size?: number }) {
   return (
-    <svg viewBox="0 0 200 30" width={width} fill="none" className={className} aria-hidden="true">
-      <path
-        d="M0,15 C15,3 30,27 45,15 C60,3 75,27 90,15 C105,3 120,27 135,15 C150,3 165,27 180,15 C192,5 198,15 200,15"
-        stroke={color}
-        strokeWidth="3.5"
-        strokeLinecap="round"
-      />
+    <svg width={size} height={size} viewBox="0 0 60 60" aria-hidden="true">
+      <circle cx="30" cy="30" r="28" fill={color} stroke="#1A1A1A" strokeWidth="4" />
     </svg>
   )
 }
 
-function Zigzag({
-  color = '#8B6F47',
-  width = 200,
-  className = '',
-}: {
-  color?: string
-  width?: number
-  className?: string
-}) {
+function ShapeSquare({ color, size = 80 }: { color: string; size?: number }) {
   return (
-    <svg viewBox="0 0 200 24" width={width} className={className} aria-hidden="true">
-      <polyline
-        points="0,22 20,2 40,22 60,2 80,22 100,2 120,22 140,2 160,22 180,2 200,22"
-        stroke={color}
-        strokeWidth="3"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width={size} height={size} viewBox="0 0 80 80" aria-hidden="true">
+      <rect x="10" y="10" width="60" height="60" fill={color} stroke="#1A1A1A" strokeWidth="4" transform="rotate(15 40 40)" />
     </svg>
   )
 }
 
-function Triangle({
-  color = '#E8917D',
-  size = 40,
-  className = '',
-}: {
-  color?: string
-  size?: number
-  className?: string
-}) {
+function ShapeTriangle({ color, size = 50 }: { color: string; size?: number }) {
   return (
-    <svg viewBox="0 0 60 52" width={size} className={className} aria-hidden="true">
-      <polygon points="30,4 56,48 4,48" fill={color} />
+    <svg width={size} height={size} viewBox="0 0 50 50" aria-hidden="true">
+      <path d="M5,45 L25,5 L45,45 Z" fill={color} stroke="#1A1A1A" strokeWidth="4" />
     </svg>
   )
 }
 
-function CircleRing({
-  color = '#5A8A8A',
-  size = 40,
-  className = '',
-}: {
-  color?: string
-  size?: number
-  className?: string
-}) {
+function ShapeStar({ color, size = 50 }: { color: string; size?: number }) {
   return (
-    <svg viewBox="0 0 40 40" width={size} className={className} aria-hidden="true">
-      <circle cx="20" cy="20" r="17" fill="none" stroke={color} strokeWidth="3.5" />
-    </svg>
-  )
-}
-
-function Diamond({
-  color = '#A8C66C',
-  size = 30,
-  className = '',
-}: {
-  color?: string
-  size?: number
-  className?: string
-}) {
-  return (
-    <svg viewBox="0 0 40 40" width={size} className={className} aria-hidden="true">
-      <rect x="5" y="5" width="30" height="30" fill={color} transform="rotate(45 20 20)" />
-    </svg>
-  )
-}
-
-function Dot({
-  color = '#E5B85C',
-  size = 12,
-  className = '',
-}: {
-  color?: string
-  size?: number
-  className?: string
-}) {
-  return (
-    <svg viewBox="0 0 20 20" width={size} className={className} aria-hidden="true">
-      <circle cx="10" cy="10" r="9" fill={color} />
-    </svg>
-  )
-}
-
-function Star({
-  color = '#E5B85C',
-  size = 28,
-  className = '',
-}: {
-  color?: string
-  size?: number
-  className?: string
-}) {
-  return (
-    <svg viewBox="0 0 24 24" width={size} className={className} aria-hidden="true">
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M12,2 L14.6,8.8 L22,8.8 L16.2,13.4 L18.4,20 L12,16 L5.6,20 L7.8,13.4 L2,8.8 L9.4,8.8 Z"
         fill={color}
+        stroke="#1A1A1A"
+        strokeWidth="1"
       />
     </svg>
   )
 }
 
-function Plus({
-  color = '#8B6F47',
-  size = 22,
-  className = '',
-}: {
-  color?: string
-  size?: number
-  className?: string
-}) {
+function ShapeSquiggle({ color = '#2D6A6A', width = 150 }: { color?: string; width?: number }) {
   return (
-    <svg viewBox="0 0 24 24" width={size} className={className} aria-hidden="true">
-      <path d="M12,3 L12,21 M3,12 L21,12" stroke={color} strokeWidth="3.5" strokeLinecap="round" />
+    <svg viewBox="0 0 200 30" width={width} fill="none" aria-hidden="true">
+      <path
+        d="M0,15 C15,3 30,27 45,15 C60,3 75,27 90,15 C105,3 120,27 135,15 C150,3 165,27 180,15"
+        stroke={color}
+        strokeWidth="5"
+        strokeLinecap="round"
+      />
     </svg>
   )
 }
 
-// ------------------------------------------------------------------
-// WAVY SECTION DIVIDER
-// ------------------------------------------------------------------
+// ─── CHECK ICON ────────────────────────────────────────────────────────────────
 
-function WaveDivider({
-  from,
-  to,
-  flip = false,
-}: {
-  from: string
-  to: string
-  flip?: boolean
-}) {
+function CheckIcon({ color }: { color: string }) {
   return (
-    <div style={{ backgroundColor: from, lineHeight: 0 }}>
-      <svg
-        viewBox="0 0 1440 60"
-        preserveAspectRatio="none"
-        style={{ display: 'block', transform: flip ? 'scaleX(-1)' : undefined }}
-        aria-hidden="true"
-      >
-        <path
-          d="M0,30 C180,60 360,0 540,35 C720,70 900,10 1080,40 C1260,65 1380,20 1440,30 L1440,60 L0,60 Z"
-          fill={to}
-        />
-      </svg>
-    </div>
-  )
-}
-
-// ------------------------------------------------------------------
-// DOT GRID PATTERN
-// ------------------------------------------------------------------
-
-function DotGrid({
-  color = '#8B6F47',
-  rows = 5,
-  cols = 5,
-  gap = 18,
-  r = 2.5,
-  opacity = 0.15,
-  className = '',
-}: {
-  color?: string
-  rows?: number
-  cols?: number
-  gap?: number
-  r?: number
-  opacity?: number
-  className?: string
-}) {
-  const w = cols * gap
-  const h = rows * gap
-  return (
-    <svg viewBox={`0 0 ${w} ${h}`} width={w} height={h} className={className} aria-hidden="true">
-      {Array.from({ length: rows }).map((_, ri) =>
-        Array.from({ length: cols }).map((_, ci) => (
-          <circle
-            key={`${ri}-${ci}`}
-            cx={ci * gap + gap / 2}
-            cy={ri * gap + gap / 2}
-            r={r}
-            fill={color}
-            opacity={opacity}
-          />
-        ))
-      )}
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+      <circle cx="12" cy="12" r="11" fill={color} />
+      <path d="M7 12.5l3.5 3.5 6.5-7" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
 
-// ------------------------------------------------------------------
-// NARA LOGO (SVG recreation of brand logo)
-// ------------------------------------------------------------------
+// ─── MAP PIN ICON ──────────────────────────────────────────────────────────────
 
-function NaraLogo({ dark = false }: { dark?: boolean }) {
+function MapPinIcon({ color }: { color: string }) {
   return (
-    <div className="flex items-center gap-3 select-none">
-      {/* Book + Sun icon */}
-      <svg viewBox="0 0 58 58" width={50} height={50} aria-hidden="true">
-        {/* Sun rays */}
-        <g>
-          <line x1="29" y1="2" x2="29" y2="8" stroke="#E5B85C" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="41" y1="6" x2="38" y2="11" stroke="#E5B85C" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="17" y1="6" x2="20" y2="11" stroke="#E5B85C" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="48" y1="14" x2="43" y2="17" stroke="#E5B85C" strokeWidth="2.5" strokeLinecap="round" />
-          <line x1="10" y1="14" x2="15" y2="17" stroke="#E5B85C" strokeWidth="2.5" strokeLinecap="round" />
-        </g>
-        {/* Sun circle */}
-        <circle cx="29" cy="18" r="8" fill="#E5B85C" />
-        {/* Open book - left page */}
-        <path d="M29,25 C29,25 14,22 6,27 L6,52 C14,47 29,50 29,50 Z" fill="#5A8A8A" />
-        {/* Open book - right page */}
-        <path d="M29,25 C29,25 44,22 52,27 L52,52 C44,47 29,50 29,50 Z" fill="#3D6666" />
-        {/* Spine */}
-        <line x1="29" y1="25" x2="29" y2="50" stroke="#E5B85C" strokeWidth="1.5" />
-        {/* Left page lines */}
-        <line x1="12" y1="34" x2="26" y2="32" stroke="#F5EFE6" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-        <line x1="12" y1="39" x2="26" y2="37" stroke="#F5EFE6" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-        <line x1="12" y1="44" x2="26" y2="42" stroke="#F5EFE6" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-        {/* Right page lines */}
-        <line x1="32" y1="32" x2="46" y2="34" stroke="#F5EFE6" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-        <line x1="32" y1="37" x2="46" y2="39" stroke="#F5EFE6" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-        <line x1="32" y1="42" x2="46" y2="44" stroke="#F5EFE6" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-      </svg>
-      {/* Wordmark */}
-      <div>
-        <span
-          className="font-script text-[1.7rem] leading-none block"
-          style={{ color: dark ? '#F5EFE6' : '#3D6666' }}
-        >
-          Nara
-        </span>
-        <span
-          className="text-[0.6rem] font-bold tracking-[0.22em] uppercase block mt-0.5"
-          style={{ color: dark ? 'rgba(245,239,230,0.75)' : '#5A8A8A' }}
-        >
-          Private Academy
-        </span>
-      </div>
-    </div>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill={color} stroke="#1A1A1A" strokeWidth="1.5" />
+      <circle cx="12" cy="9" r="2.5" fill="white" />
+    </svg>
   )
 }
 
-// ------------------------------------------------------------------
+// ─── PHONE ICON ────────────────────────────────────────────────────────────────
+
+function PhoneIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#2D6A6A" />
+    </svg>
+  )
+}
+
+// ─── WHATSAPP ICON ─────────────────────────────────────────────────────────────
+
+function WhatsAppIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  )
+}
+
+// ─── INSTAGRAM ICON ────────────────────────────────────────────────────────────
+
+function InstagramIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+    </svg>
+  )
+}
+
+// ──────────────────────────────────────────────────────────────────────────────
 // NAVBAR
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
 
 function Navbar() {
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm"
-      style={{ backgroundColor: 'rgba(245,239,230,0.95)', borderBottom: '2px solid rgba(90,138,138,0.2)' }}
-    >
-      <div className="max-w-6xl mx-auto px-5 py-3 flex items-center justify-between">
-        <NaraLogo />
-
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-semibold" style={{ color: '#3D6666' }}>
-          <a href="#program" className="hover:text-coral transition-colors" style={{ color: '#3D6666' }}>
-            Program
-          </a>
-          <a href="#mapel" className="hover:text-coral transition-colors" style={{ color: '#3D6666' }}>
-            Mata Pelajaran
-          </a>
-          <a href="#lokasi" className="hover:text-coral transition-colors" style={{ color: '#3D6666' }}>
-            Lokasi
-          </a>
-          <a
-            href="https://wa.me/6285924136533"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-cream font-bold px-5 py-2 rounded-full transition-all"
-            style={{
-              backgroundColor: '#5A8A8A',
-              boxShadow: '3px 3px 0px 0px #3D6666',
-            }}
-          >
-            Daftar Sekarang
-          </a>
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 md:px-20 py-0 h-20 bg-background border-b-2 border-ink-black shadow-hard-sm">
+      {/* Logo */}
+      <div className="flex items-center gap-3">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
+          <rect width="36" height="36" rx="8" fill="#2D6A6A" />
+          <path d="M8,28 L8,12 L18,8 L28,12 L28,28" stroke="white" strokeWidth="2.5" fill="none" strokeLinejoin="round" />
+          <path d="M8,28 Q18,22 28,28" stroke="#FFD54F" strokeWidth="2.5" fill="none" />
+          <circle cx="18" cy="10" r="4" fill="#FFD54F" />
+        </svg>
+        <div>
+          <span className="text-xl font-black text-nara-green leading-none block">Nara</span>
+          <span className="text-[10px] font-bold text-on-surface-variant tracking-widest uppercase leading-none">Private Academy</span>
         </div>
-
-        {/* Mobile CTA */}
-        <a
-          href="https://wa.me/6285924136533"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="md:hidden text-cream font-bold px-4 py-2 rounded-full text-sm"
-          style={{ backgroundColor: '#5A8A8A' }}
-        >
-          Daftar
-        </a>
       </div>
-    </nav>
+
+      {/* Desktop nav */}
+      <nav className="hidden md:flex gap-8 items-center">
+        {[
+          { href: '#program', label: 'Program' },
+          { href: '#spark', label: 'Mata Pelajaran' },
+          { href: '#lokasi', label: 'Lokasi' },
+        ].map(({ href, label }) => (
+          <a
+            key={href}
+            href={href}
+            className="font-semibold text-on-surface-variant hover:text-nara-green transition-colors duration-200"
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
+      {/* CTA */}
+      <a
+        href="https://wa.me/6281234567890"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-nara-green text-white font-bold text-sm px-5 py-2.5 border-2 border-ink-black rounded-lg shadow-hard-sm btn-press transition-all duration-100"
+      >
+        Daftar Sekarang
+      </a>
+    </header>
   )
 }
 
-// ------------------------------------------------------------------
-// HERO SECTION
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+// HERO
+// ──────────────────────────────────────────────────────────────────────────────
 
 function HeroSection() {
   return (
-    <section
-      className="relative min-h-screen flex items-center overflow-hidden pt-20"
-      style={{ backgroundColor: '#F5EFE6' }}
-    >
-      {/* ---- Memphis background scatter ---- */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        {/* Top-left cluster */}
-        <Triangle color="#E8917D" size={90} className="absolute top-24 left-6 opacity-70" />
-        <CircleRing color="#5A8A8A" size={65} className="absolute top-40 left-28 opacity-50" />
-        <Dot color="#E5B85C" size={22} className="absolute top-28 left-48 opacity-80" />
-        <Plus color="#A8C66C" size={26} className="absolute top-56 left-16 opacity-60" />
-
-        {/* Top-right cluster */}
-        <Star color="#E5B85C" size={42} className="absolute top-20 right-52 opacity-70" />
-        <Diamond color="#A8C66C" size={55} className="absolute top-16 right-16 opacity-60" />
-        <Squiggle color="#E8917D" width={130} className="absolute top-44 right-24 opacity-55" />
-        <Dot color="#8B6F47" size={16} className="absolute top-20 right-32 opacity-50" />
-
-        {/* Left middle */}
-        <Diamond color="#E5B85C" size={22} className="absolute top-1/2 left-10 opacity-50" />
-        <Squiggle color="#5A8A8A" width={90} className="absolute top-2/3 left-4 opacity-40" />
-        <CircleRing color="#E8917D" size={45} className="absolute top-3/4 left-24 opacity-35" />
-
-        {/* Right middle */}
-        <Plus color="#E8917D" size={22} className="absolute top-1/3 right-36 opacity-40" />
-        <Dot color="#A8C66C" size={12} className="absolute top-1/2 right-8 opacity-60" />
-
-        {/* Bottom decorations */}
-        <Triangle color="#5A8A8A" size={65} className="absolute bottom-28 right-10 opacity-35 rotate-180" />
-        <Star color="#A8C66C" size={30} className="absolute bottom-40 right-40 opacity-50" />
-        <CircleRing color="#E5B85C" size={110} className="absolute -bottom-14 right-48 opacity-25" />
-
-        {/* Dot grid bottom-left */}
-        <div className="absolute bottom-12 left-0 opacity-100">
-          <DotGrid color="#8B6F47" rows={6} cols={6} gap={20} r={2.5} opacity={0.12} />
-        </div>
-
-        {/* Scattered fills */}
-        <Dot color="#E8917D" size={14} className="absolute top-64 left-1/3 opacity-60" />
-        <Dot color="#5A8A8A" size={18} className="absolute bottom-48 left-1/4 opacity-40" />
-        <Plus color="#E5B85C" size={20} className="absolute bottom-36 right-1/3 opacity-45" />
-        <Triangle color="#A8C66C" size={28} className="absolute top-1/2 left-1/2 opacity-25" />
+    <section className="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-6 md:px-20 pt-28 pb-24 overflow-hidden memphis-pattern">
+      {/* Floating Memphis shapes */}
+      <div className="absolute top-24 left-[8%] pointer-events-none floating-shape">
+        <ShapeCircle color="#FFD54F" size={64} />
+      </div>
+      <div className="absolute bottom-32 right-[6%] pointer-events-none floating-shape-2">
+        <ShapeSquare color="#FF7F67" size={72} />
+      </div>
+      <div className="absolute top-56 right-[14%] pointer-events-none floating-shape-3">
+        <ShapeTriangle color="#4DB6AC" size={52} />
+      </div>
+      <div className="absolute bottom-44 left-[12%] pointer-events-none floating-shape-2">
+        <ShapeStar color="#FFD54F" size={44} />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-5 py-16 grid md:grid-cols-2 gap-12 items-center">
-        {/* ---- Left: text ---- */}
-        <div>
-          {/* Batch badge */}
-          <div
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 border-2"
-            style={{
-              backgroundColor: 'rgba(229,184,92,0.2)',
-              borderColor: '#E5B85C',
-            }}
-          >
-            <Star color="#E5B85C" size={15} />
-            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: '#8B6F47' }}>
-              Batch 3 · Mulai Juli 2025
-            </span>
-          </div>
-
-          <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-5"
-            style={{ color: '#3D6666' }}
-          >
-            Belajar Jadi Lebih{' '}
-            <span className="relative inline-block">
-              <span className="relative z-10" style={{ color: '#E8917D' }}>
-                Nyaman
-              </span>
-              <span
-                className="absolute -bottom-1 left-0 right-0 h-3 rounded-sm z-0"
-                style={{ backgroundColor: 'rgba(229,184,92,0.45)' }}
-                aria-hidden="true"
-              />
-            </span>{' '}
-            &amp;{' '}
-            <span style={{ color: '#5A8A8A' }}>Menyenangkan!</span>
-          </h1>
-
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-lg">
-            Les privat &amp; semi privat kelas kecil{' '}
-            <strong style={{ color: '#3D6666' }}>maksimal 4–6 siswa</strong> untuk anak{' '}
-            <strong style={{ color: '#3D6666' }}>TK–SMA</strong> di Parung &amp; Inkopad. Suasana
-            hangat, pendampingan penuh, harga mulai{' '}
-            <strong style={{ color: '#E8917D' }}>Rp 150.000/bulan</strong>.
-          </p>
-
-          {/* CTA buttons */}
-          <div className="flex flex-wrap gap-4 mb-10">
-            <a
-              href="https://wa.me/6285924136533"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 font-bold px-7 py-3.5 rounded-full transition-all hover:translate-x-0.5 hover:translate-y-0.5 text-cream"
-              style={{
-                backgroundColor: '#5A8A8A',
-                border: '2.5px solid #3D6666',
-                boxShadow: '5px 5px 0px 0px #3D6666',
-              }}
-            >
-              {/* WhatsApp icon */}
-              <svg viewBox="0 0 24 24" width={20} height={20} fill="currentColor" aria-hidden="true">
-                <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12 0C5.37 0 0 5.37 0 12c0 2.14.56 4.15 1.54 5.89L0 24l6.3-1.52A11.97 11.97 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 22c-1.9 0-3.66-.52-5.16-1.43l-.37-.22-3.84.93.97-3.77-.24-.39A9.98 9.98 0 012 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z" />
-              </svg>
-              Hubungi via WhatsApp
-            </a>
-            <a
-              href="#program"
-              className="inline-flex items-center gap-2 font-bold px-7 py-3.5 rounded-full transition-colors hover:bg-teal/10"
-              style={{
-                border: '2.5px solid #5A8A8A',
-                color: '#5A8A8A',
-              }}
-            >
-              Lihat Program
-              <svg viewBox="0 0 24 24" width={18} fill="none" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-
-          {/* Trust signals */}
-          <div className="flex flex-wrap gap-4 text-sm text-gray-500">
-            {['Gratis modul & worksheet', 'Jadwal fleksibel', 'Konsultasi gratis'].map((t) => (
-              <span key={t} className="flex items-center gap-1.5">
-                <span
-                  className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: 'rgba(168,198,108,0.3)' }}
-                >
-                  <svg viewBox="0 0 24 24" width={11} fill="none" stroke="#A8C66C" strokeWidth={3} aria-hidden="true">
-                    <path d="M20 6L9 17l-5-5" />
-                  </svg>
-                </span>
-                {t}
-              </span>
-            ))}
-          </div>
+      <div className="relative z-10 max-w-4xl">
+        {/* Badge */}
+        <div className="inline-block px-4 py-2 bg-spark-yellow border-2 border-ink-black rounded-full font-black text-sm uppercase tracking-wider mb-6 -rotate-2 shadow-hard-sm">
+          ✨ Bukan Bimbel Biasa
         </div>
 
-        {/* ---- Right: Memphis info card ---- */}
-        <div className="flex justify-center md:justify-end">
-          <div className="relative">
-            {/* Main card */}
-            <div
-              className="rounded-2xl p-7 relative z-10 w-full max-w-xs"
-              style={{
-                backgroundColor: '#ffffff',
-                border: '3px solid #3D6666',
-                boxShadow: '10px 10px 0px 0px #3D6666',
-              }}
-            >
-              {/* Star accent */}
-              <Star color="#E5B85C" size={38} className="absolute -top-5 -right-5" />
+        {/* Headline */}
+        <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 text-ink-black">
+          Belajar Jadi Lebih{' '}
+          <span className="bg-spark-teal text-white px-2 inline-block">Nyaman</span>{' '}
+          &amp;{' '}
+          <span className="bg-spark-coral text-white px-2 inline-block underline decoration-4 underline-offset-4">
+            Menyenangkan!
+          </span>
+        </h1>
 
-              {/* Logo */}
-              <div className="flex justify-center mb-6">
-                <NaraLogo />
-              </div>
+        <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
+          Nara Private Academy hadir sebagai partner pendidikan yang asik, interaktif, dan fokus pada pengembangan
+          potensi buah hati Anda — kelas kecil, tutor berpengalaman, harga terjangkau.
+        </p>
 
-              {/* Program list */}
-              <div className="space-y-2.5 mb-5">
-                {[
-                  { name: 'Spark Words', sub: 'Bahasa Inggris — SD–SMA', emoji: '💬', bg: 'rgba(232,145,125,0.15)' },
-                  { name: 'Spark Numbers', sub: 'Matematika — SD–SMA', emoji: '🔢', bg: 'rgba(90,138,138,0.15)' },
-                  { name: 'Spark Tech', sub: 'Komputer — SD–SMA', emoji: '💻', bg: 'rgba(168,198,108,0.15)' },
-                  { name: 'Spark Art', sub: 'Mewarnai — TK–SD', emoji: '🎨', bg: 'rgba(229,184,92,0.15)' },
-                ].map((p) => (
-                  <div
-                    key={p.name}
-                    className="flex items-center gap-3 rounded-xl p-2.5"
-                    style={{ backgroundColor: '#F5EFE6' }}
-                  >
-                    <span
-                      className="w-9 h-9 rounded-lg flex items-center justify-center text-xl flex-shrink-0"
-                      style={{ backgroundColor: p.bg }}
-                    >
-                      {p.emoji}
-                    </span>
-                    <div>
-                      <p className="text-xs font-extrabold" style={{ color: '#3D6666' }}>
-                        {p.name}
-                      </p>
-                      <p className="text-[10px] text-gray-400">{p.sub}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Price badge */}
-              <div className="rounded-xl p-3 text-center text-cream" style={{ backgroundColor: '#5A8A8A' }}>
-                <p className="text-xs opacity-80">Mulai dari</p>
-                <p className="text-2xl font-black">Rp 150.000</p>
-                <p className="text-xs opacity-80">/bulan</p>
-              </div>
-            </div>
-
-            {/* Floating badges */}
-            <div
-              className="absolute -top-7 -left-10 text-cream text-xs font-bold px-3 py-2 rounded-xl border-2 -rotate-6 whitespace-nowrap"
-              style={{
-                backgroundColor: '#E8917D',
-                borderColor: '#3D6666',
-                boxShadow: '3px 3px 0px 0px #3D6666',
-              }}
-            >
-              Max 6 siswa 👥
-            </div>
-            <div
-              className="absolute -bottom-8 -left-6 text-brown text-xs font-bold px-3 py-2 rounded-xl border-2 rotate-3 whitespace-nowrap"
-              style={{
-                backgroundColor: '#E5B85C',
-                borderColor: '#8B6F47',
-                boxShadow: '3px 3px 0px 0px #8B6F47',
-                color: '#3D6666',
-              }}
-            >
-              Jadwal Fleksibel 📅
-            </div>
-            <div
-              className="absolute -bottom-5 right-2 text-xs font-bold px-3 py-2 rounded-xl border-2 -rotate-3 whitespace-nowrap"
-              style={{
-                backgroundColor: '#A8C66C',
-                borderColor: '#5A8A8A',
-                boxShadow: '3px 3px 0px 0px #5A8A8A',
-                color: '#3D6666',
-              }}
-            >
-              Gratis Modul 📚
-            </div>
-          </div>
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-8 py-4 border-2 border-ink-black rounded-xl shadow-hard btn-press transition-all duration-100 text-base"
+          >
+            <WhatsAppIcon size={22} />
+            Hubungi via WhatsApp
+          </a>
+          <a
+            href="#program"
+            className="flex items-center justify-center bg-nara-beige text-ink-black font-bold px-8 py-4 border-2 border-ink-black rounded-xl shadow-hard-sm btn-press transition-all duration-100 text-base hover:bg-surface-container"
+          >
+            Lihat Program Kami
+          </a>
         </div>
       </div>
 
-      {/* Wave to next section (teal) */}
-      <WaveDivider from="#F5EFE6" to="#5A8A8A" />
+      {/* Hero visual card */}
+      <div className="relative z-10 mt-16 w-full max-w-4xl px-4">
+        <div className="relative rounded-2xl border-2 border-ink-black shadow-hard overflow-hidden bg-nara-green aspect-video flex items-center justify-center">
+          {/* Abstract Memphis illustration */}
+          <svg viewBox="0 0 800 450" className="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="800" height="450" fill="#2D6A6A" />
+            {/* Dots pattern */}
+            {Array.from({ length: 12 }).map((_, i) =>
+              Array.from({ length: 7 }).map((_, j) => (
+                <circle key={`${i}-${j}`} cx={40 + i * 66} cy={40 + j * 62} r="3" fill="rgba(255,255,255,0.15)" />
+              ))
+            )}
+            {/* Big circle */}
+            <circle cx="200" cy="225" r="120" fill="none" stroke="#4DB6AC" strokeWidth="40" opacity="0.3" />
+            {/* Triangle */}
+            <polygon points="580,80 700,280 460,280" fill="#FFD54F" opacity="0.5" stroke="#1A1A1A" strokeWidth="3" />
+            {/* Square */}
+            <rect x="560" y="300" width="100" height="100" fill="#FF7F67" opacity="0.6" stroke="#1A1A1A" strokeWidth="3" transform="rotate(10 610 350)" />
+            {/* Text placeholder */}
+            <text x="400" y="210" textAnchor="middle" fill="white" fontSize="36" fontWeight="900" fontFamily="sans-serif">Nara Private Academy</text>
+            <text x="400" y="260" textAnchor="middle" fill="#FFD54F" fontSize="20" fontFamily="sans-serif">Kelas Kecil · Tutor Berpengalaman · Harga Terjangkau</text>
+            {/* Stars */}
+            <text x="120" y="80" fill="#FFD54F" fontSize="36">★</text>
+            <text x="660" y="120" fill="#FF7F67" fontSize="28">★</text>
+            <text x="350" y="380" fill="rgba(255,255,255,0.4)" fontSize="48">✦</text>
+          </svg>
+        </div>
+      </div>
     </section>
   )
 }
 
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
 // STATS BAR
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+
+const stats = [
+  { icon: '👥', value: 'Maks 6 Siswa', label: 'Kelas Eksklusif', rotate: 'hover:rotate-2' },
+  { icon: '💰', value: '150rb/bln', label: 'Harga Mulai', rotate: 'hover:-rotate-2' },
+  { icon: '📚', value: '4 Mapel', label: 'Program Unggulan', rotate: 'hover:rotate-2' },
+  { icon: '🏫', value: 'TK – SMA', label: 'Semua Jenjang', rotate: 'hover:-rotate-2' },
+]
 
 function StatsBar() {
-  const stats = [
-    { value: 'Maks. 6', label: 'Siswa per Kelas', icon: '👥' },
-    { value: '150rb', label: 'Mulai /bulan', icon: '💰' },
-    { value: '4', label: 'Mata Pelajaran', icon: '📚' },
-    { value: 'TK–SMA', label: 'Jenjang Tersedia', icon: '🎓' },
-  ]
-
   return (
-    <section className="relative" style={{ backgroundColor: '#5A8A8A' }}>
-      <div className="max-w-5xl mx-auto px-5 py-14">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" style={{ color: '#F5EFE6' }}>
-          {stats.map((s, i) => (
-            <div key={s.label} className="flex flex-col items-center">
-              <span className="text-4xl mb-2">{s.icon}</span>
-              <span className="text-3xl font-black mb-1">{s.value}</span>
-              <span className="text-sm opacity-75">{s.label}</span>
-              {/* Memphis dot separator */}
-              {i < stats.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -translate-y-1/2" aria-hidden="true" />
-              )}
-            </div>
-          ))}
-        </div>
+    <section className="bg-nara-green py-16 px-6 md:px-20 border-y-4 border-ink-black">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+        {stats.map(({ icon, value, label, rotate }) => (
+          <div
+            key={label}
+            className={`bg-white p-6 rounded-xl border-2 border-ink-black shadow-hard-sm text-center transition-transform duration-200 ${rotate}`}
+          >
+            <div className="text-4xl mb-2">{icon}</div>
+            <p className="text-xl font-black text-on-surface block">{value}</p>
+            <p className="text-sm font-bold text-on-surface-variant uppercase tracking-wider mt-1">{label}</p>
+          </div>
+        ))}
       </div>
-      <WaveDivider from="#5A8A8A" to="#F5EFE6" />
     </section>
   )
 }
 
-// ------------------------------------------------------------------
-// PROGRAMS SECTION
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+// PROGRAMS
+// ──────────────────────────────────────────────────────────────────────────────
 
-const PROGRAMS = [
+const programs = [
   {
-    name: 'Regular Class',
-    emoji: '👥',
-    price: '150.000',
-    color: '#E8917D',
-    shadow: '#c4614a',
-    bg: '#FEF3F0',
-    group: '2–6 orang/kelompok',
-    meetings: '4–8 pertemuan/bulan',
+    title: 'Regular Class',
+    color: 'bg-spark-teal',
+    textColor: 'text-white',
+    borderColor: 'border-spark-teal',
+    btnColor: 'bg-spark-teal text-white',
+    price: 'Rp 150.000 / bln',
     features: [
-      'Kurikulum sekolah (SD/MI, SMP/MTS, SMA)',
-      'Gratis modul & lembar latihan',
-      'Laporan hasil belajar berkala',
-      'Konsultasi di luar pertemuan',
-      'Jadwal Sabtu & Minggu',
+      'Kelompok Belajar 4–6 Siswa',
+      'Materi Menyesuaikan Kurikulum',
+      'Tersedia Semua Jenjang',
     ],
+    badge: null,
   },
   {
-    name: 'Private Class',
-    emoji: '⭐',
-    price: '250.000',
-    color: '#5A8A8A',
-    shadow: '#3D6666',
-    bg: '#EDF4F4',
-    group: '1 siswa (eksklusif)',
-    meetings: '4–8 pertemuan/bulan',
+    title: 'Private Class',
+    color: 'bg-spark-coral',
+    textColor: 'text-white',
+    borderColor: 'border-spark-coral',
+    btnColor: 'bg-spark-coral text-white',
+    price: 'Rp 450.000 / bln',
     features: [
-      'Materi sepenuhnya by request',
-      'Fokus & perhatian 100% untuk 1 anak',
-      'Jadwal super fleksibel',
-      'Gratis modul & lembar latihan',
-      'Laporan hasil belajar berkala',
+      'Belajar 1-on-1 Lebih Fokus',
+      'Waktu & Tempat Fleksibel',
+      'Laporan Perkembangan Mingguan',
     ],
-    highlighted: true,
+    badge: 'POPULER!',
   },
   {
-    name: 'Bimbel TKA',
-    emoji: '🏆',
-    price: '300.000',
-    color: '#E5B85C',
-    shadow: '#8B6F47',
-    bg: '#FDF9EE',
-    group: '2–4 orang/kelompok',
-    meetings: '8–16 pertemuan/bulan',
+    title: 'Bimbel TK & PAUD',
+    color: 'bg-spark-yellow',
+    textColor: 'text-ink-black',
+    borderColor: 'border-spark-yellow',
+    btnColor: 'bg-spark-yellow text-ink-black',
+    price: 'Rp 125.000 / bln',
     features: [
-      'Persiapan TKA intensif & terstruktur',
-      'Simulasi try out berkala',
-      'Materi fokus TKA (quran & akademik)',
-      'Gratis modul khusus TKA',
-      'Laporan perkembangan detail',
+      'Persiapan Calistung Menyenangkan',
+      'Metode Belajar Sambil Bermain',
+      'Alat Peraga Edukatif Lengkap',
     ],
+    badge: null,
   },
 ]
 
 function ProgramsSection() {
   return (
-    <section id="program" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#F5EFE6' }}>
-      {/* Memphis decorations */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <Squiggle color="#E8917D" width={200} className="absolute -top-2 right-8 opacity-40" />
-        <Diamond color="#A8C66C" size={48} className="absolute top-16 left-8 opacity-40" />
-        <Dot color="#E5B85C" size={20} className="absolute bottom-16 right-12 opacity-60" />
-        <Plus color="#5A8A8A" size={26} className="absolute bottom-24 left-16 opacity-40" />
-        <Star color="#E8917D" size={32} className="absolute top-1/2 right-6 opacity-30" />
-        <Triangle color="#E5B85C" size={40} className="absolute bottom-8 left-1/2 opacity-25" />
-        <DotGrid color="#5A8A8A" rows={4} cols={4} gap={22} r={2} opacity={0.08} className="absolute top-8 right-40" />
+    <section id="program" className="py-28 px-6 md:px-20 max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-black text-ink-black mb-4">
+          Pilih Program Yang Cocok Untukmu
+        </h2>
+        <div className="h-2 w-24 bg-spark-coral mx-auto rounded-full border border-ink-black" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-5">
-        {/* Heading */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Zigzag color="#E5B85C" width={55} />
-            <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#8B6F47' }}>
-              Harga &amp; Program
-            </span>
-            <Zigzag color="#E5B85C" width={55} />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#3D6666' }}>
-            Pilih Program yang Tepat
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            Semua program dilengkapi modul &amp; worksheet gratis, jadwal fleksibel, dan guru
-            berpengalaman yang ngerti ritme belajar anak.
-          </p>
-        </div>
-
-        {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-7">
-          {PROGRAMS.map((p) => (
-            <div
-              key={p.name}
-              className={`rounded-2xl p-6 relative transition-transform ${
-                p.highlighted ? 'md:-translate-y-5' : ''
-              }`}
-              style={{
-                backgroundColor: p.bg,
-                border: `3px solid ${p.color}`,
-                boxShadow: `7px 7px 0px 0px ${p.shadow}`,
-              }}
-            >
-              {p.highlighted && (
-                <div
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 text-cream text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap"
-                  style={{ backgroundColor: p.color }}
-                >
-                  ⭐ Paling Populer
-                </div>
-              )}
-
-              <div className="text-4xl mb-3">{p.emoji}</div>
-              <h3 className="text-xl font-black mb-1" style={{ color: '#3D6666' }}>
-                {p.name}
-              </h3>
-              <p className="text-xs text-gray-500 mb-5">
-                {p.group} · {p.meetings}
-              </p>
-
-              {/* Price */}
-              <div className="mb-6">
-                <span className="text-xs text-gray-400 block mb-0.5">Mulai dari</span>
-                <span className="text-3xl font-black" style={{ color: p.color }}>
-                  Rp {p.price}
-                </span>
-                <span className="text-sm text-gray-400"> /bulan</span>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {programs.map(({ title, color, textColor, borderColor, btnColor, price, features, badge }) => (
+          <div
+            key={title}
+            className="bg-white border-4 border-ink-black rounded-2xl overflow-hidden shadow-hard flex flex-col hover:scale-[1.02] transition-transform duration-200 relative"
+          >
+            {badge && (
+              <div className="absolute -top-4 -right-4 bg-spark-yellow border-2 border-ink-black px-4 py-2 rounded-lg font-black text-xs text-ink-black rotate-12 z-20 shadow-hard-sm">
+                {badge}
               </div>
+            )}
 
-              {/* Features */}
-              <ul className="space-y-2.5 mb-7">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
-                    <span
-                      className="mt-0.5 flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: `${p.color}30` }}
-                    >
-                      <svg viewBox="0 0 24 24" width={10} fill="none" stroke={p.color} strokeWidth={3} aria-hidden="true">
-                        <path d="M20 6L9 17l-5-5" />
-                      </svg>
-                    </span>
-                    {f}
+            {/* Card header */}
+            <div className={`${color} p-6 border-b-4 border-ink-black flex justify-between items-center`}>
+              <h3 className={`text-xl font-black ${textColor}`}>{title}</h3>
+              <span className={`text-2xl ${textColor}`}>✦</span>
+            </div>
+
+            {/* Card body */}
+            <div className="p-8 flex-grow">
+              <ul className="space-y-4 mb-8">
+                {features.map((f) => (
+                  <li key={f} className="flex items-start gap-3">
+                    <CheckIcon color="#2D6A6A" />
+                    <span className="text-base text-on-surface-variant">{f}</span>
                   </li>
                 ))}
               </ul>
+              <div>
+                <span className="text-xs font-bold text-on-surface-variant uppercase tracking-wider block mb-1">Mulai Dari</span>
+                <span className="text-2xl font-black text-nara-green">{price}</span>
+              </div>
+            </div>
 
+            <div className="p-6 pt-0">
               <a
-                href="https://wa.me/6285924136533"
+                href="https://wa.me/6281234567890"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center text-cream font-bold py-3 rounded-xl text-sm transition-opacity hover:opacity-85"
-                style={{
-                  backgroundColor: p.color,
-                  boxShadow: `3px 3px 0px 0px ${p.shadow}`,
-                }}
+                className={`block w-full text-center py-3.5 border-2 border-ink-black rounded-xl ${btnColor} font-bold text-sm shadow-hard-sm btn-press transition-all duration-100`}
               >
-                Daftar {p.name}
+                Pilih Paket
               </a>
             </div>
-          ))}
-        </div>
-
-        <p className="text-center text-sm text-gray-400 mt-8">
-          Periode aktif: Batch 3 · Januari–Juni 2026 · Kuota terbatas per kelas!
-        </p>
+          </div>
+        ))}
       </div>
     </section>
   )
 }
 
-// ------------------------------------------------------------------
-// WHY NARA SECTION
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+// WHY NARA
+// ──────────────────────────────────────────────────────────────────────────────
+
+const whyItems = [
+  {
+    icon: '⏰',
+    bg: 'bg-spark-teal',
+    title: 'Jadwal Fleksibel',
+    desc: 'Pilih waktu belajar yang paling nyaman — tersedia sesi pagi hingga malam.',
+  },
+  {
+    icon: '📖',
+    bg: 'bg-spark-coral',
+    title: 'Modul Gratis',
+    desc: 'Semua siswa mendapatkan modul pembelajaran eksklusif Nara tanpa biaya tambahan.',
+  },
+  {
+    icon: '🎤',
+    bg: 'bg-spark-yellow',
+    title: 'Tutor Berpengalaman',
+    desc: 'Tutor kami dilatih khusus untuk menciptakan suasana belajar yang ramah anak.',
+  },
+]
 
 function WhyNaraSection() {
-  const reasons = [
-    {
-      icon: '👥',
-      title: 'Kelas Kecil & Eksklusif',
-      desc: 'Maksimal 4–6 siswa per kelas. Setiap anak mendapat perhatian penuh dari guru — nggak ada yang ketinggalan materi.',
-      color: '#E8917D',
-      bg: '#FEF3F0',
-    },
-    {
-      icon: '📅',
-      title: 'Jadwal Super Fleksibel',
-      desc: 'Waktu belajar bisa disesuaikan dengan kebutuhan siswa dan orang tua. Tersedia hari Sabtu & Minggu.',
-      color: '#5A8A8A',
-      bg: '#EDF4F4',
-    },
-    {
-      icon: '📚',
-      title: 'Modul & Worksheet Gratis',
-      desc: 'Setiap siswa mendapatkan materi belajar dan lembar latihan sesuai kebutuhannya tanpa biaya tambahan.',
-      color: '#A8C66C',
-      bg: '#F2F8EA',
-    },
-    {
-      icon: '🎓',
-      title: 'Guru Berpengalaman',
-      desc: 'Guru ramah yang benar-benar memahami ritme belajar anak. Bukan sekadar ngajar, tapi mendampingi.',
-      color: '#E5B85C',
-      bg: '#FDF9EE',
-    },
-  ]
-
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#ffffff' }}>
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        {/* Stripe pattern top-left */}
-        <div
-          className="absolute top-0 left-0 w-56 h-56 opacity-100"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(45deg, rgba(90,138,138,0.07) 0, rgba(90,138,138,0.07) 2px, transparent 0, transparent 50%)',
-            backgroundSize: '16px 16px',
-          }}
-        />
-        <Triangle color="#E5B85C" size={55} className="absolute top-10 right-20 opacity-40" />
-        <CircleRing color="#E8917D" size={90} className="absolute bottom-10 left-8 opacity-25" />
-        <Squiggle color="#5A8A8A" width={160} className="absolute bottom-24 right-6 opacity-30" />
-        <Diamond color="#A8C66C" size={30} className="absolute top-1/2 right-48 opacity-35" />
-        <Star color="#E8917D" size={25} className="absolute bottom-1/3 left-1/3 opacity-30" />
+    <section id="tentang" className="bg-nara-beige py-28 px-6 md:px-20 border-y-2 border-ink-black relative overflow-hidden">
+      {/* Background squiggle doodle */}
+      <div className="absolute top-10 right-16 opacity-10 pointer-events-none">
+        <ShapeSquiggle color="#2D6A6A" width={200} />
       </div>
 
-      <div className="max-w-6xl mx-auto px-5">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Squiggle color="#5A8A8A" width={55} />
-            <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#8B6F47' }}>
-              Kenapa Nara?
-            </span>
-            <Squiggle color="#5A8A8A" width={55} />
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        {/* Text column */}
+        <div className="w-full md:w-1/2">
+          <div className="relative inline-block mb-6">
+            <h2 className="text-3xl md:text-4xl font-black text-ink-black relative z-10">
+              Kenapa Harus Nara Academy?
+            </h2>
+            <div className="absolute -bottom-2 -left-2 w-full h-4 bg-spark-yellow -z-0 opacity-70" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#3D6666' }}>
-            Bukan Bimbel Biasa
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            Kami percaya setiap anak punya ritme belajarnya sendiri. Nara hadir untuk mendampingi
-            dengan hangat, bukan mengejar nilai.
+          <p className="text-lg text-on-surface-variant mb-10 leading-relaxed">
+            Kami percaya setiap anak memiliki gaya belajar yang unik. Di Nara, kami tidak hanya memberikan materi,
+            tapi membangun kepercayaan diri anak untuk tumbuh lebih percaya diri.
           </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {reasons.map((r, i) => (
-            <div
-              key={r.title}
-              className="rounded-2xl p-6 relative"
-              style={{
-                backgroundColor: r.bg,
-                border: `2.5px solid ${r.color}`,
-                boxShadow: `5px 5px 0px 0px ${r.color}`,
-              }}
-            >
-              {/* Number badge */}
+          <div className="flex flex-col gap-5">
+            {whyItems.map(({ icon, bg, title, desc }) => (
               <div
-                className="absolute -top-3.5 -right-3.5 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-cream"
-                style={{ backgroundColor: r.color }}
+                key={title}
+                className="flex gap-4 items-start bg-white p-5 border-2 border-ink-black rounded-xl shadow-hard-sm"
               >
-                {i + 1}
-              </div>
-              <div className="text-4xl mb-4">{r.icon}</div>
-              <h3 className="font-black text-base mb-2" style={{ color: '#3D6666' }}>
-                {r.title}
-              </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{r.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Quote strip */}
-        <div
-          className="mt-14 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden"
-          style={{ backgroundColor: '#F5EFE6', border: '2.5px solid #5A8A8A' }}
-        >
-          <div className="absolute right-4 top-4 opacity-20">
-            <DotGrid color="#5A8A8A" rows={3} cols={5} gap={16} r={2} opacity={0.5} />
-          </div>
-          <div className="text-5xl flex-shrink-0">&ldquo;</div>
-          <p className="text-lg font-semibold italic text-center sm:text-left" style={{ color: '#3D6666' }}>
-            Belajar sambil bermain, asah kreativitas — setiap anak punya ritmenya sendiri.
-          </p>
-          <div
-            className="flex-shrink-0 px-5 py-2 rounded-full text-cream font-bold text-sm whitespace-nowrap"
-            style={{ backgroundColor: '#5A8A8A' }}
-          >
-            Tagline Nara
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ------------------------------------------------------------------
-// SUBJECTS / SPARK PROGRAMS SECTION
-// ------------------------------------------------------------------
-
-function SubjectsSection() {
-  const subjects = [
-    {
-      spark: 'Spark Words',
-      subject: 'Bahasa Inggris',
-      level: 'SD – SMA',
-      emoji: '💬',
-      color: '#E8917D',
-      bg: '#FEF3F0',
-      shadow: '#c4614a',
-      desc: 'Belajar Bahasa Inggris dengan cara yang nyaman dan menyenangkan. Speaking, reading, writing, dan grammar yang relevan untuk sekolah.',
-    },
-    {
-      spark: 'Spark Numbers',
-      subject: 'Matematika',
-      level: 'SD – SMA',
-      emoji: '🔢',
-      color: '#5A8A8A',
-      bg: '#EDF4F4',
-      shadow: '#3D6666',
-      desc: 'Matematika jadi lebih mudah dipahami dan disukai. Dari operasi dasar, persamaan, hingga aljabar dan geometri sesuai jenjang.',
-    },
-    {
-      spark: 'Spark Tech',
-      subject: 'Komputer',
-      level: 'SD – SMA',
-      emoji: '💻',
-      color: '#A8C66C',
-      bg: '#F2F8EA',
-      shadow: '#6b9a35',
-      desc: 'Komputer dasar dan Microsoft Office jadi lebih aplikatif dan seru. Persiapan untuk era digital sejak dini.',
-    },
-    {
-      spark: 'Spark Art',
-      subject: 'Mewarnai',
-      level: 'TK – SD',
-      emoji: '🎨',
-      color: '#E5B85C',
-      bg: '#FDF9EE',
-      shadow: '#8B6F47',
-      desc: 'Asah kreativitas dan motorik halus anak melalui seni mewarnai yang menyenangkan. Cocok untuk TK dan SD awal.',
-    },
-  ]
-
-  return (
-    <section id="mapel" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#EDF7F5' }}>
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <DotGrid
-          color="#5A8A8A"
-          rows={5}
-          cols={6}
-          gap={22}
-          r={2.5}
-          opacity={0.1}
-          className="absolute top-4 right-4"
-        />
-        <Triangle color="#E5B85C" size={65} className="absolute bottom-10 left-6 opacity-40" />
-        <Diamond color="#E8917D" size={42} className="absolute top-16 left-1/3 opacity-30" />
-        <Star color="#A8C66C" size={38} className="absolute bottom-1/3 right-8 opacity-40" />
-        <CircleRing color="#E5B85C" size={80} className="absolute -bottom-10 left-1/2 opacity-20" />
-      </div>
-
-      <div className="max-w-6xl mx-auto px-5">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Diamond color="#E5B85C" size={22} />
-            <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#8B6F47' }}>
-              Program Pembelajaran
-            </span>
-            <Diamond color="#E5B85C" size={22} />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#3D6666' }}>
-            4 Spark Programs
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-            Dirancang untuk membuat belajar terasa lebih ringan, relevan, dan bermakna di setiap
-            jenjang.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 gap-6">
-          {subjects.map((s) => (
-            <div
-              key={s.spark}
-              className="rounded-2xl p-6 flex gap-5 transition-transform hover:-translate-y-1"
-              style={{
-                backgroundColor: s.bg,
-                border: `3px solid ${s.color}`,
-                boxShadow: `6px 6px 0px 0px ${s.shadow}`,
-              }}
-            >
-              {/* Icon */}
-              <div
-                className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center text-3xl"
-                style={{ backgroundColor: `${s.color}25` }}
-              >
-                {s.emoji}
-              </div>
-
-              {/* Content */}
-              <div>
-                <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <h3 className="font-black text-lg" style={{ color: '#3D6666' }}>
-                    {s.spark}
-                  </h3>
-                  <span
-                    className="text-[10px] font-bold px-2 py-0.5 rounded-full text-cream"
-                    style={{ backgroundColor: s.color }}
-                  >
-                    {s.level}
-                  </span>
+                <div className={`w-12 h-12 ${bg} border-2 border-ink-black rounded-lg flex items-center justify-center text-2xl shrink-0`}>
+                  {icon}
                 </div>
-                <p className="text-sm font-semibold text-gray-400 mb-2">{s.subject}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+                <div>
+                  <h4 className="text-lg font-black text-ink-black mb-1">{title}</h4>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">{desc}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Visual column */}
+        <div className="w-full md:w-1/2 relative">
+          <div className="absolute -top-4 -left-4 w-full h-full border-4 border-spark-teal rounded-2xl rotate-3 pointer-events-none" />
+          <div className="relative bg-nara-green border-4 border-ink-black rounded-2xl overflow-hidden shadow-hard aspect-square flex items-center justify-center">
+            <svg viewBox="0 0 400 400" className="w-full h-full" aria-hidden="true">
+              <rect width="400" height="400" fill="#2D6A6A" />
+              <circle cx="200" cy="160" r="70" fill="#F9F6E5" opacity="0.15" />
+              <text x="200" y="155" textAnchor="middle" fill="white" fontSize="72">👩‍🏫</text>
+              <text x="200" y="260" textAnchor="middle" fill="white" fontSize="20" fontWeight="700" fontFamily="sans-serif">Tutor Bersertifikasi</text>
+              <text x="200" y="290" textAnchor="middle" fill="#FFD54F" fontSize="14" fontFamily="sans-serif">Sabar · Kreatif · Menyenangkan</text>
+              {/* Stars */}
+              {[60, 100, 140, 180, 220].map((x, i) => (
+                <text key={i} x={x} y="340" fill="#FFD54F" fontSize="20" textAnchor="middle">★</text>
+              ))}
+              {/* Circles deco */}
+              <circle cx="50" cy="50" r="25" fill="none" stroke="#4DB6AC" strokeWidth="4" />
+              <circle cx="350" cy="350" r="30" fill="none" stroke="#FF7F67" strokeWidth="4" />
+            </svg>
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-// ------------------------------------------------------------------
-// HOW IT WORKS
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+// SPARK PROGRAMS
+// ──────────────────────────────────────────────────────────────────────────────
 
-function HowItWorksSection() {
-  const steps = [
-    {
-      n: '01',
-      title: 'Hubungi Kami',
-      desc: 'Chat via WhatsApp atau DM Instagram untuk tanya-tanya tanpa komitmen.',
-      color: '#E8917D',
-      bg: '#FEF3F0',
-    },
-    {
-      n: '02',
-      title: 'Konsultasi Gratis',
-      desc: 'Ceritakan kebutuhan anak — kami bantu pilih program dan jadwal yang pas.',
-      color: '#5A8A8A',
-      bg: '#EDF4F4',
-    },
-    {
-      n: '03',
-      title: 'Pilih Program',
-      desc: 'Tentukan kelas (Regular / Private / TKA) dan mata pelajaran yang diinginkan.',
-      color: '#A8C66C',
-      bg: '#F2F8EA',
-    },
-    {
-      n: '04',
-      title: 'Mulai Belajar!',
-      desc: 'Anak langsung masuk kelas kecil yang hangat dan menyenangkan. Selamat datang di Nara!',
-      color: '#E5B85C',
-      bg: '#FDF9EE',
-    },
-  ]
+const sparkPrograms = [
+  {
+    id: 'words',
+    title: 'Spark Words',
+    icon: '📝',
+    iconBg: 'bg-spark-coral',
+    border: 'border-spark-coral',
+    checkColor: '#FF7F67',
+    desc: 'Program penguasaan Bahasa Inggris yang menyenangkan dengan metode imersif untuk membangun kepercayaan diri berbicara.',
+    tags: ['LEVEL: SD – SMA', 'FOKUS: Conversational & Reading'],
+    badge: { label: 'POPULER', bg: 'bg-spark-coral', text: 'text-white' },
+  },
+  {
+    id: 'numbers',
+    title: 'Spark Numbers',
+    icon: '🔢',
+    iconBg: 'bg-spark-teal',
+    border: 'border-spark-teal',
+    checkColor: '#4DB6AC',
+    desc: 'Matematika tidak lagi menakutkan. Kami menggunakan visualisasi konkret untuk membedah konsep logika yang kompleks.',
+    tags: ['LEVEL: SD – SMP', 'FOKUS: Logic & Problem Solving'],
+    badge: null,
+  },
+  {
+    id: 'tech',
+    title: 'Spark Tech',
+    icon: '💻',
+    iconBg: 'bg-nara-green',
+    border: 'border-nara-green',
+    checkColor: '#2D6A6A',
+    desc: 'Membangun dasar berpikir komputasional melalui coding, robotika, dan literasi digital sejak dini.',
+    tags: ['LEVEL: SMP – SMA', 'FOKUS: Coding & Robotics'],
+    badge: { label: 'NEW', bg: 'bg-spark-yellow', text: 'text-ink-black' },
+  },
+  {
+    id: 'art',
+    title: 'Spark Art',
+    icon: '🎨',
+    iconBg: 'bg-spark-yellow',
+    border: 'border-spark-yellow',
+    checkColor: '#FFD54F',
+    desc: 'Mengasah ekspresi diri melalui eksplorasi warna, komposisi, dan berbagai media seni rupa.',
+    tags: ['LEVEL: TK – SD', 'FOKUS: Coloring & Sketching'],
+    badge: null,
+  },
+]
 
+function SparkProgramsSection() {
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#F5EFE6' }}>
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <Squiggle color="#E5B85C" width={180} className="absolute top-4 left-0 opacity-35" />
-        <Squiggle color="#E8917D" width={140} className="absolute bottom-4 right-0 opacity-35" />
-        <Plus color="#5A8A8A" size={28} className="absolute top-1/3 right-8 opacity-40" />
-        <Diamond color="#E8917D" size={32} className="absolute bottom-1/4 left-8 opacity-35" />
+    <section id="spark" className="py-28 px-6 md:px-20 max-w-7xl mx-auto">
+      <div className="text-center mb-16">
+        <div className="inline-block bg-spark-yellow border-2 border-ink-black px-4 py-1.5 rounded-full font-black text-sm uppercase tracking-wider mb-4 -rotate-2 shadow-hard-sm">
+          Eksplorasi Bakat
+        </div>
+        <h2 className="text-3xl md:text-4xl font-black text-ink-black mb-4">Pilih Program yang Tepat</h2>
+        <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">
+          Setiap anak punya &ldquo;percikan&rdquo; unik. Temukan program Spark yang dirancang untuk memicu kreativitas dan logika mereka.
+        </p>
       </div>
 
-      <div className="max-w-5xl mx-auto px-5">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Plus color="#E8917D" size={18} />
-            <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#8B6F47' }}>
-              Cara Daftar
-            </span>
-            <Plus color="#E8917D" size={18} />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#3D6666' }}>
-            Mudah & Cepat
-          </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-lg">
-            Cukup 4 langkah dan anak sudah bisa mulai belajar di Nara.
-          </p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {sparkPrograms.map(({ id, title, icon, iconBg, border, checkColor, desc, tags, badge }) => (
+          <div
+            key={id}
+            className={`bg-nara-beige border-2 ${border} p-8 rounded-xl shadow-hard-lg flex flex-col md:flex-row gap-8 hover:-translate-y-1 transition-transform duration-200`}
+          >
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`w-12 h-12 ${iconBg} rounded-lg flex items-center justify-center border-2 border-ink-black text-2xl`}>
+                  {icon}
+                </div>
+                <h3 className="text-2xl font-black text-ink-black">{title}</h3>
+              </div>
+              <p className="text-sm text-on-surface-variant mb-5 leading-relaxed">{desc}</p>
+              <div className="space-y-2">
+                {tags.map((t) => (
+                  <div key={t} className="flex items-center gap-2">
+                    <CheckIcon color={checkColor} />
+                    <span className="text-xs font-black text-ink-black uppercase tracking-wider">{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {steps.map((s, i) => (
-            <div key={s.n} className="relative">
-              {/* Connector arrow (desktop) */}
-              {i < steps.length - 1 && (
-                <div className="hidden lg:flex absolute top-8 -right-2 z-10 items-center" aria-hidden="true">
-                  <svg viewBox="0 0 24 12" width={24} fill="none">
-                    <path d="M0,6 L18,6 M12,1 L18,6 L12,11" stroke="#8B6F47" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" opacity={0.4} />
-                  </svg>
+            {/* Visual panel */}
+            <div className={`w-full md:w-44 h-44 bg-white rounded-xl border-2 ${border} overflow-hidden flex items-center justify-center relative shrink-0`}>
+              <span className="text-7xl">{icon}</span>
+              {badge && (
+                <div className={`absolute bottom-0 right-0 ${badge.bg} border-2 border-ink-black px-2 py-1 rotate-3`}>
+                  <span className={`${badge.text} font-black text-xs`}>{badge.label}</span>
                 </div>
               )}
-
-              <div
-                className="rounded-2xl p-6"
-                style={{
-                  backgroundColor: s.bg,
-                  border: `2.5px solid ${s.color}`,
-                  boxShadow: `5px 5px 0px 0px ${s.color}`,
-                }}
-              >
-                <div
-                  className="text-2xl font-black mb-4 inline-block px-3 py-1 rounded-xl text-cream"
-                  style={{ backgroundColor: s.color }}
-                >
-                  {s.n}
-                </div>
-                <h3 className="font-black text-base mb-2" style={{ color: '#3D6666' }}>
-                  {s.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
-              </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   )
 }
 
-// ------------------------------------------------------------------
-// LOCATION SECTION
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+// HOW TO REGISTER
+// ──────────────────────────────────────────────────────────────────────────────
+
+const steps = [
+  { num: '1', bg: 'bg-spark-yellow', text: 'text-ink-black', title: 'Pilih Program', desc: 'Tentukan paket yang sesuai kebutuhan Anda.' },
+  { num: '2', bg: 'bg-spark-teal', text: 'text-white', title: 'Hubungi Admin', desc: 'Klik tombol WhatsApp untuk konsultasi gratis.' },
+  { num: '3', bg: 'bg-spark-coral', text: 'text-white', title: 'Trial Class', desc: 'Coba keseruan belajar di Nara Academy.' },
+  { num: '4', bg: 'bg-nara-green', text: 'text-white', title: 'Mulai Belajar!', desc: 'Selamat datang di keluarga Nara!' },
+]
+
+function HowItWorksSection() {
+  return (
+    <section className="py-28 px-6 md:px-20 max-w-7xl mx-auto text-center">
+      <h2 className="text-3xl md:text-4xl font-black text-ink-black mb-16">
+        Cara Daftar Gampang Banget!
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+        {/* Connector line */}
+        <div className="hidden md:block absolute top-10 left-[13%] right-[13%] h-1 bg-ink-black opacity-20 -z-10 rounded-full" />
+
+        {steps.map(({ num, bg, text, title, desc }) => (
+          <div key={num} className="flex flex-col items-center">
+            <div
+              className={`w-20 h-20 ${bg} border-4 border-ink-black rounded-full flex items-center justify-center text-2xl font-black shadow-hard-sm mb-5 ${text}`}
+            >
+              {num}
+            </div>
+            <h5 className="text-xl font-black text-ink-black mb-2">{title}</h5>
+            <p className="text-sm text-on-surface-variant px-4 leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+// ──────────────────────────────────────────────────────────────────────────────
+// LOCATIONS
+// ──────────────────────────────────────────────────────────────────────────────
+
+const locations = [
+  {
+    name: 'Cabang Parung',
+    address: 'Jl. Raya Parung No. 12, Kel. Parung, Kec. Parung, Kab. Bogor',
+    phone: '0812-3456-7890',
+    mapUrl: 'https://maps.google.com',
+    bg: '#4DB6AC',
+    accent: '#FFD54F',
+  },
+  {
+    name: 'Cabang Inkopad',
+    address: 'Komplek Inkopad Blok C1, Tajurhalang, Kab. Bogor',
+    phone: '0812-9876-5432',
+    mapUrl: 'https://maps.google.com',
+    bg: '#2D6A6A',
+    accent: '#FF7F67',
+  },
+]
 
 function LocationSection() {
   return (
-    <section id="lokasi" className="py-20 relative overflow-hidden" style={{ backgroundColor: '#F5EFE6' }}>
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <CircleRing color="#5A8A8A" size={130} className="absolute -bottom-14 -left-14 opacity-20" />
-        <Triangle color="#E8917D" size={55} className="absolute top-20 right-8 opacity-35" />
-        <Squiggle color="#E5B85C" width={160} className="absolute bottom-24 right-12 opacity-35" />
-        <DotGrid color="#8B6F47" rows={4} cols={3} gap={20} r={2} opacity={0.1} className="absolute top-8 left-12" />
-      </div>
-
-      <div className="max-w-5xl mx-auto px-5">
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <Squiggle color="#E8917D" width={55} />
-            <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#8B6F47' }}>
-              Lokasi Kami
-            </span>
-            <Squiggle color="#E8917D" width={55} />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-black mb-4" style={{ color: '#3D6666' }}>
-            Dua Lokasi Strategis
+    <section id="lokasi" className="py-28 px-6 md:px-20 bg-surface-container-highest border-t-4 border-ink-black">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-black text-ink-black mb-4">
+            Temukan Cabang Nara Terdekat
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-lg">
-            Tersedia di Inkopad dan Parung — mudah dijangkau dari berbagai penjuru area Bogor Selatan.
-          </p>
+          <div className="h-2 w-24 bg-nara-green mx-auto rounded-full border border-ink-black" />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-7">
-          {/* Inkopad */}
-          <div
-            className="rounded-2xl p-7 relative overflow-hidden bg-white"
-            style={{
-              border: '3px solid #5A8A8A',
-              boxShadow: '7px 7px 0px 0px #5A8A8A',
-            }}
-          >
-            <div className="absolute top-0 right-0 w-20 h-20" aria-hidden="true">
-              <DotGrid color="#5A8A8A" rows={4} cols={4} gap={12} r={1.5} opacity={0.15} />
-            </div>
-            <div className="flex items-start gap-4 relative">
-              <div
-                className="w-13 h-13 flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-                style={{ backgroundColor: 'rgba(90,138,138,0.15)' }}
-              >
-                📍
-              </div>
-              <div>
-                <h3 className="text-xl font-black mb-1" style={{ color: '#3D6666' }}>
-                  Inkopad
-                </h3>
-                <p className="text-sm text-gray-400 mb-1">Tajurhalang, Bogor</p>
-                <p className="text-xs text-gray-400 mb-4 italic">
-                  Perumahan Inkopad Blok H8 No. 32
-                </p>
-                <p className="text-xs font-bold mb-2" style={{ color: '#5A8A8A' }}>
-                  Semua program tersedia:
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {['Matematika', 'Bahasa Inggris', 'Komputer', 'Mewarnai'].map((m) => (
-                    <span
-                      key={m}
-                      className="text-xs px-2.5 py-1 rounded-full font-semibold"
-                      style={{
-                        backgroundColor: 'rgba(90,138,138,0.12)',
-                        color: '#3D6666',
-                        border: '1px solid rgba(90,138,138,0.3)',
-                      }}
-                    >
-                      {m}
-                    </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {locations.map(({ name, address, phone, mapUrl, bg, accent }) => (
+            <div
+              key={name}
+              className="bg-white border-2 border-ink-black rounded-2xl overflow-hidden shadow-hard flex flex-col md:flex-row"
+            >
+              {/* Map visual */}
+              <div className="md:w-1/2 h-48 md:h-auto overflow-hidden" style={{ minHeight: '200px' }}>
+                <svg viewBox="0 0 300 250" className="w-full h-full" style={{ background: bg }} aria-hidden="true">
+                  {/* Grid lines */}
+                  {[50, 100, 150, 200, 250].map(x => (
+                    <line key={x} x1={x} y1="0" x2={x} y2="250" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
                   ))}
+                  {[50, 100, 150, 200].map(y => (
+                    <line key={y} x1="0" y1={y} x2="300" y2={y} stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+                  ))}
+                  {/* Roads */}
+                  <line x1="0" y1="125" x2="300" y2="125" stroke="rgba(255,255,255,0.4)" strokeWidth="8" />
+                  <line x1="150" y1="0" x2="150" y2="250" stroke="rgba(255,255,255,0.4)" strokeWidth="6" />
+                  {/* Pin */}
+                  <circle cx="150" cy="110" r="18" fill={accent} stroke="#1A1A1A" strokeWidth="3" />
+                  <circle cx="150" cy="110" r="7" fill="white" />
+                  <line x1="150" y1="128" x2="150" y2="145" stroke={accent} strokeWidth="4" />
+                  {/* Label */}
+                  <rect x="100" y="152" width="100" height="26" rx="6" fill="white" stroke="#1A1A1A" strokeWidth="1.5" />
+                  <text x="150" y="169" textAnchor="middle" fill="#1A1A1A" fontSize="11" fontWeight="700" fontFamily="sans-serif">{name}</text>
+                </svg>
+              </div>
+
+              {/* Info */}
+              <div className="md:w-1/2 p-8">
+                <h3 className="text-xl font-black text-nara-green mb-3">{name}</h3>
+                <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">{address}</p>
+                <div className="space-y-3">
+                  <a
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 font-bold text-sm text-nara-green hover:underline underline-offset-2"
+                  >
+                    <MapPinIcon color="#2D6A6A" />
+                    Buka Google Maps
+                  </a>
+                  <a
+                    href={`tel:${phone.replace(/-/g, '')}`}
+                    className="flex items-center gap-2 font-bold text-sm text-nara-green hover:underline underline-offset-2"
+                  >
+                    <PhoneIcon />
+                    {phone}
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Parung */}
-          <div
-            className="rounded-2xl p-7 relative overflow-hidden bg-white"
-            style={{
-              border: '3px solid #E5B85C',
-              boxShadow: '7px 7px 0px 0px #8B6F47',
-            }}
-          >
-            <div className="absolute top-0 right-0 w-20 h-20" aria-hidden="true">
-              <DotGrid color="#E5B85C" rows={4} cols={4} gap={12} r={1.5} opacity={0.2} />
-            </div>
-            <div className="flex items-start gap-4 relative">
-              <div
-                className="w-12 h-12 flex-shrink-0 rounded-xl flex items-center justify-center text-2xl"
-                style={{ backgroundColor: 'rgba(229,184,92,0.2)' }}
-              >
-                📍
-              </div>
-              <div>
-                <h3 className="text-xl font-black mb-1" style={{ color: '#3D6666' }}>
-                  Parung
-                </h3>
-                <p className="text-sm text-gray-400 mb-1">Parung, Bogor</p>
-                <p className="text-xs text-gray-400 mb-4 italic">
-                  Area Parung (detail lokasi via WhatsApp)
-                </p>
-                <p className="text-xs font-bold mb-2" style={{ color: '#8B6F47' }}>
-                  Program tersedia:
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {['Matematika', 'Bahasa Inggris', 'Komputer'].map((m) => (
-                    <span
-                      key={m}
-                      className="text-xs px-2.5 py-1 rounded-full font-semibold"
-                      style={{
-                        backgroundColor: 'rgba(229,184,92,0.15)',
-                        color: '#8B6F47',
-                        border: '1px solid rgba(229,184,92,0.4)',
-                      }}
-                    >
-                      {m}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ------------------------------------------------------------------
-// CTA / CONTACT SECTION
-// ------------------------------------------------------------------
-
-function CTASection() {
-  return (
-    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: '#5A8A8A' }}>
-      {/* Memphis background on teal */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-100"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 0, transparent 50%)',
-            backgroundSize: '18px 18px',
-          }}
-        />
-        <Triangle color="#F5EFE6" size={110} className="absolute -top-10 right-24 opacity-15" />
-        <CircleRing color="#E5B85C" size={90} className="absolute bottom-8 left-16 opacity-40" />
-        <Star color="#E8917D" size={45} className="absolute top-20 left-1/4 opacity-35" />
-        <Diamond color="#A8C66C" size={55} className="absolute bottom-24 right-16 opacity-30" />
-        <Squiggle color="#F5EFE6" width={220} className="absolute top-6 right-0 opacity-15" />
-        <Squiggle color="#E5B85C" width={160} className="absolute bottom-6 left-0 opacity-30" />
-        <DotGrid
-          color="#F5EFE6"
-          rows={4}
-          cols={4}
-          gap={20}
-          r={2}
-          opacity={0.12}
-          className="absolute top-8 left-8"
-        />
-        <DotGrid
-          color="#F5EFE6"
-          rows={4}
-          cols={4}
-          gap={20}
-          r={2}
-          opacity={0.12}
-          className="absolute bottom-8 right-8"
-        />
-      </div>
-
-      <div className="relative max-w-4xl mx-auto px-5 text-center" style={{ color: '#F5EFE6' }}>
-        {/* Badge */}
-        <div
-          className="inline-flex items-center gap-2 rounded-full px-5 py-2 mb-8 border"
-          style={{ backgroundColor: 'rgba(245,239,230,0.15)', borderColor: 'rgba(245,239,230,0.35)' }}
-        >
-          <Star color="#E5B85C" size={16} />
-          <span className="text-sm font-semibold">Batch 3 · Januari–Juni 2026 · Kuota Terbatas!</span>
-        </div>
-
-        <h2 className="text-4xl md:text-6xl font-black mb-5 leading-tight">
-          Siap Bergabung
-          <br />
-          dengan Nara?
-        </h2>
-
-        <p className="text-xl opacity-85 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Hubungi kami sekarang untuk info lengkap, jadwal terbaru, dan konsultasi gratis.
-          Nggak ada komitmen — langsung ngobrol aja!
-        </p>
-
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/6285924136533"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-bold px-8 py-4 rounded-full text-lg transition-all hover:translate-y-0.5"
-            style={{
-              backgroundColor: '#F5EFE6',
-              color: '#3D6666',
-              border: '3px solid #F5EFE6',
-              boxShadow: '5px 5px 0px 0px rgba(0,0,0,0.3)',
-            }}
-          >
-            <svg viewBox="0 0 24 24" width={24} height={24} fill="#5A8A8A" aria-hidden="true">
-              <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12 0C5.37 0 0 5.37 0 12c0 2.14.56 4.15 1.54 5.89L0 24l6.3-1.52A11.97 11.97 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 22c-1.9 0-3.66-.52-5.16-1.43l-.37-.22-3.84.93.97-3.77-.24-.39A9.98 9.98 0 012 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z" />
-            </svg>
-            0859-2413-6533
-          </a>
-
-          {/* Instagram */}
-          <a
-            href="https://instagram.com/belajardinara_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-bold px-8 py-4 rounded-full text-lg transition-colors hover:bg-white/10"
-            style={{ border: '2.5px solid rgba(245,239,230,0.5)', color: '#F5EFE6' }}
-          >
-            <svg viewBox="0 0 24 24" width={24} height={24} fill="currentColor" aria-hidden="true">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-            </svg>
-            @belajardinara_
-          </a>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-6 text-sm opacity-75">
-          {['✓ Konsultasi gratis', '✓ Tanpa komitmen jangka panjang', '✓ Kuota terbatas!'].map((t) => (
-            <span key={t}>{t}</span>
           ))}
         </div>
       </div>
@@ -1375,88 +718,150 @@ function CTASection() {
   )
 }
 
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+// CTA SECTION
+// ──────────────────────────────────────────────────────────────────────────────
+
+function CTASection() {
+  return (
+    <section className="py-24 px-6 md:px-20 text-center bg-spark-yellow border-t-4 border-ink-black relative overflow-hidden">
+      {/* Memphis deco */}
+      <div className="absolute top-8 left-8 pointer-events-none opacity-30">
+        <ShapeCircle color="#2D6A6A" size={80} />
+      </div>
+      <div className="absolute bottom-8 right-8 pointer-events-none opacity-30">
+        <ShapeTriangle color="#FF7F67" size={70} />
+      </div>
+      <div className="absolute top-12 right-32 pointer-events-none opacity-20">
+        <ShapeSquiggle color="#1A1A1A" width={120} />
+      </div>
+
+      <div className="relative z-10 max-w-3xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-black text-ink-black mb-6 leading-tight">
+          Siap Memulai Petualangan Belajar?
+        </h2>
+        <p className="text-lg font-medium text-on-surface mb-10 max-w-xl mx-auto">
+          Jangan tunda lagi masa depan cemerlang si buah hati. Konsultasi <strong>GRATIS</strong> sekarang juga!
+        </p>
+
+        {/* Bounce arrow doodle */}
+        <div className="hidden md:block absolute bottom-10 right-20 animate-bounce pointer-events-none">
+          <svg fill="none" height="70" viewBox="0 0 100 100" width="70">
+            <path d="M20 20C40 30 50 60 80 80M80 80L70 60M80 80L60 70" stroke="#2D6A6A" strokeLinecap="round" strokeLinejoin="round" strokeWidth="5" />
+          </svg>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-ink-black text-white font-bold px-10 py-4 border-2 border-ink-black rounded-2xl shadow-hard btn-press transition-all duration-100 text-base hover:bg-nara-green"
+          >
+            <WhatsAppIcon size={22} />
+            Hubungi di WhatsApp
+          </a>
+          <a
+            href="https://instagram.com/naraorivateacademy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 bg-transparent text-ink-black font-bold px-10 py-4 border-2 border-ink-black rounded-2xl hover:bg-white/50 transition-colors text-base"
+          >
+            <InstagramIcon size={22} />
+            Follow Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ──────────────────────────────────────────────────────────────────────────────
 // FOOTER
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
 
 function Footer() {
   return (
-    <footer className="py-12" style={{ backgroundColor: '#3D6666', color: '#F5EFE6' }}>
-      <div className="max-w-5xl mx-auto px-5">
-        <div className="grid md:grid-cols-3 gap-10 mb-10">
-          {/* Brand */}
-          <div>
-            <NaraLogo dark />
-            <p className="text-sm mt-3 leading-relaxed" style={{ opacity: 0.65 }}>
-              Tempat les privat &amp; semi privat kelas kecil untuk anak TK–SMA. Belajar nyaman,
-              kelas kecil, dengan pendampingan penuh.
-            </p>
-          </div>
-
-          {/* Programs */}
-          <div>
-            <h4
-              className="font-bold text-xs uppercase tracking-[0.2em] mb-4"
-              style={{ color: '#E5B85C' }}
-            >
-              Program
-            </h4>
-            <ul className="space-y-2 text-sm" style={{ opacity: 0.75 }}>
-              <li>Regular Class — mulai Rp 150.000</li>
-              <li>Private Class — mulai Rp 250.000</li>
-              <li>Bimbel TKA — mulai Rp 300.000</li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4
-              className="font-bold text-xs uppercase tracking-[0.2em] mb-4"
-              style={{ color: '#E5B85C' }}
-            >
-              Kontak &amp; Lokasi
-            </h4>
-            <ul className="space-y-2 text-sm" style={{ opacity: 0.75 }}>
-              <li>
-                <a
-                  href="https://wa.me/6285924136533"
-                  className="hover:opacity-100 transition-opacity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  📱 0859-2413-6533
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://instagram.com/belajardinara_"
-                  className="hover:opacity-100 transition-opacity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  📸 @belajardinara_
-                </a>
-              </li>
-              <li>📍 Inkopad Tajurhalang &amp; Parung, Bogor</li>
-            </ul>
-          </div>
+    <footer className="w-full py-16 px-6 md:px-20 grid grid-cols-1 md:grid-cols-3 gap-10 bg-surface-container-highest border-t-2 border-ink-black">
+      {/* Brand */}
+      <div>
+        <div className="flex items-center gap-2 mb-4">
+          <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true">
+            <rect width="36" height="36" rx="8" fill="#2D6A6A" />
+            <path d="M8,28 L8,12 L18,8 L28,12 L28,28" stroke="white" strokeWidth="2.5" fill="none" strokeLinejoin="round" />
+            <path d="M8,28 Q18,22 28,28" stroke="#FFD54F" strokeWidth="2.5" fill="none" />
+            <circle cx="18" cy="10" r="4" fill="#FFD54F" />
+          </svg>
+          <span className="text-lg font-black text-nara-green">Nara Private Academy</span>
         </div>
-
-        <div
-          className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
-          style={{ borderTop: '1px solid rgba(245,239,230,0.2)', opacity: 0.5 }}
-        >
-          <span>© 2026 Nara Private Academy. All rights reserved.</span>
-          <span>Belajar nyaman, kelas kecil, pendampingan penuh.</span>
+        <p className="text-sm text-on-surface-variant leading-relaxed max-w-xs mb-4">
+          Bukan Bimbel Biasa. Memberikan pengalaman belajar yang personal, kreatif, dan menyenangkan untuk generasi masa depan.
+        </p>
+        <div className="flex gap-3">
+          <a
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-[#25D366] border-2 border-ink-black rounded-lg flex items-center justify-center hover:shadow-hard-sm transition-shadow"
+            aria-label="WhatsApp"
+          >
+            <WhatsAppIcon size={18} />
+          </a>
+          <a
+            href="https://instagram.com/naraprivateacademy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] border-2 border-ink-black rounded-lg flex items-center justify-center hover:shadow-hard-sm transition-shadow"
+            aria-label="Instagram"
+          >
+            <InstagramIcon size={18} />
+          </a>
         </div>
+      </div>
+
+      {/* Navigation */}
+      <div>
+        <h4 className="font-black text-ink-black uppercase tracking-widest text-sm mb-5">Navigasi</h4>
+        <ul className="space-y-3">
+          {[
+            { href: '#program', label: 'Program Kami' },
+            { href: '#spark', label: 'Mata Pelajaran' },
+            { href: '#tentang', label: 'Kenapa Nara' },
+            { href: '#lokasi', label: 'Lokasi Cabang' },
+          ].map(({ href, label }) => (
+            <li key={href}>
+              <a href={href} className="text-sm text-on-surface-variant hover:text-nara-green hover:underline underline-offset-4 transition-colors">
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Contact */}
+      <div>
+        <h4 className="font-black text-ink-black uppercase tracking-widest text-sm mb-5">Kontak</h4>
+        <ul className="space-y-3 text-sm text-on-surface-variant">
+          <li>📍 Parung & Inkopad, Kab. Bogor</li>
+          <li>📱 0812-3456-7890 (Parung)</li>
+          <li>📱 0812-9876-5432 (Inkopad)</li>
+          <li>📸 @naraprivateacademy</li>
+        </ul>
+      </div>
+
+      {/* Copyright */}
+      <div className="col-span-full border-t-2 border-ink-black pt-8 text-center">
+        <p className="text-sm text-on-surface-variant">
+          © 2025 Nara Private Academy · Bukan Bimbel Biasa.
+        </p>
       </div>
     </footer>
   )
 }
 
-// ------------------------------------------------------------------
-// ROOT PAGE
-// ------------------------------------------------------------------
+// ──────────────────────────────────────────────────────────────────────────────
+// PAGE
+// ──────────────────────────────────────────────────────────────────────────────
 
 export default function Home() {
   return (
@@ -1467,7 +872,7 @@ export default function Home() {
         <StatsBar />
         <ProgramsSection />
         <WhyNaraSection />
-        <SubjectsSection />
+        <SparkProgramsSection />
         <HowItWorksSection />
         <LocationSection />
         <CTASection />
