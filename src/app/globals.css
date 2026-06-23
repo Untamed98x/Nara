@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5EFE6;
+  --teal: #5A8A8A;
+  --teal-dark: #3D6666;
+  --brown: #8B6F47;
+  --coral: #E8917D;
+  --mustard: #E5B85C;
+  --sage: #A8C66C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: #2D2D2D;
+}
+
+/* Memphis dot grid pattern utility */
+.memphis-dots {
+  background-image: radial-gradient(circle, #8B6F47 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+}
+
+/* Memphis diagonal stripes */
+.memphis-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(90, 138, 138, 0.12) 8px,
+    rgba(90, 138, 138, 0.12) 16px
+  );
+}
+
+/* Memphis checkerboard */
+.memphis-check {
+  background-image:
+    linear-gradient(45deg, rgba(229, 184, 92, 0.15) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(229, 184, 92, 0.15) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(229, 184, 92, 0.15) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(229, 184, 92, 0.15) 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0px;
+}
