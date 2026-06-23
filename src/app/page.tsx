@@ -148,7 +148,7 @@ function Navbar() {
 
       {/* CTA */}
       <a
-        href="https://wa.me/6281234567890"
+        href="https://wa.me/6285924136533"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-nara-green text-white font-bold text-sm px-5 py-2.5 border-2 border-ink-black rounded-lg shadow-hard-sm btn-press transition-all duration-100"
@@ -188,29 +188,29 @@ function HeroSection() {
 
         {/* Headline */}
         <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 text-ink-black">
-          Belajar Jadi Lebih{' '}
-          <span className="bg-spark-teal text-white px-2 inline-block">Nyaman</span>{' '}
+          Belajar Jadi Terasa{' '}
+          <span className="bg-spark-teal text-white px-2 inline-block">Lebih Ringan</span>{' '}
           &amp;{' '}
           <span className="bg-spark-coral text-white px-2 inline-block underline decoration-4 underline-offset-4">
-            Menyenangkan!
+            Tidak Menegangkan
           </span>
         </h1>
 
         <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto mb-10 leading-relaxed">
-          Nara Private Academy hadir sebagai partner pendidikan yang asik, interaktif, dan fokus pada pengembangan
-          potensi buah hati Anda — kelas kecil, tutor berpengalaman, harga terjangkau.
+          Les semi privat dengan kelas kecil — maksimal 3–4 anak per sesi. Setiap anak punya ritmenya sendiri,
+          dan kami di sini untuk mendampingi, bukan sekadar mengejar nilai.
         </p>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6285924136533"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-[#25D366] text-white font-bold px-8 py-4 border-2 border-ink-black rounded-xl shadow-hard btn-press transition-all duration-100 text-base"
           >
             <WhatsAppIcon size={22} />
-            Hubungi via WhatsApp
+            Ngobrol dulu, gratis
           </a>
           <a
             href="#program"
@@ -258,9 +258,9 @@ function HeroSection() {
 // ──────────────────────────────────────────────────────────────────────────────
 
 const stats = [
-  { icon: '👥', value: 'Maks 6 Siswa', label: 'Kelas Eksklusif', rotate: 'hover:rotate-2' },
+  { icon: '👥', value: 'Maks 3–4 Anak', label: 'Semi Privat', rotate: 'hover:rotate-2' },
   { icon: '💰', value: '150rb/bln', label: 'Harga Mulai', rotate: 'hover:-rotate-2' },
-  { icon: '📚', value: '4 Mapel', label: 'Program Unggulan', rotate: 'hover:rotate-2' },
+  { icon: '📚', value: '4 Mata Pelajaran', label: 'Program Unggulan', rotate: 'hover:rotate-2' },
   { icon: '🏫', value: 'TK – SMA', label: 'Semua Jenjang', rotate: 'hover:-rotate-2' },
 ]
 
@@ -295,10 +295,11 @@ const programs = [
     borderColor: 'border-spark-teal',
     btnColor: 'bg-spark-teal text-white',
     price: 'Rp 150.000 / bln',
+    sub: '2–6 orang · 4–8 pertemuan',
     features: [
-      'Kelompok Belajar 4–6 Siswa',
-      'Materi Menyesuaikan Kurikulum',
-      'Tersedia Semua Jenjang',
+      'Kelompok kecil 2–6 siswa',
+      'Materi mengikuti kurikulum sekolah',
+      'Tersedia semua jenjang TK–SMA',
     ],
     badge: null,
   },
@@ -308,25 +309,27 @@ const programs = [
     textColor: 'text-white',
     borderColor: 'border-spark-coral',
     btnColor: 'bg-spark-coral text-white',
-    price: 'Rp 450.000 / bln',
+    price: 'Rp 250.000 / bln',
+    sub: '1-on-1 · 4–8 pertemuan',
     features: [
-      'Belajar 1-on-1 Lebih Fokus',
-      'Waktu & Tempat Fleksibel',
-      'Laporan Perkembangan Mingguan',
+      'Belajar 1-on-1, lebih fokus & terarah',
+      'Materi by request, jadwal fleksibel',
+      'Pendampingan penuh per sesi',
     ],
     badge: 'POPULER!',
   },
   {
-    title: 'Bimbel TK & PAUD',
+    title: 'Bimbel TKA',
     color: 'bg-spark-yellow',
     textColor: 'text-ink-black',
     borderColor: 'border-spark-yellow',
     btnColor: 'bg-spark-yellow text-ink-black',
-    price: 'Rp 125.000 / bln',
+    price: 'Rp 300.000 / bln',
+    sub: '2–4 orang · 8–16 pertemuan',
     features: [
-      'Persiapan Calistung Menyenangkan',
-      'Metode Belajar Sambil Bermain',
-      'Alat Peraga Edukatif Lengkap',
+      'Persiapan Tes Kemampuan Akademik',
+      'Simulasi try out berkala',
+      'Strategi soal UTBK / masuk SMA',
     ],
     badge: null,
   },
@@ -343,7 +346,7 @@ function ProgramsSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        {programs.map(({ title, color, textColor, borderColor, btnColor, price, features, badge }) => (
+        {programs.map(({ title, color, textColor, borderColor, btnColor, price, sub, features, badge }) => (
           <div
             key={title}
             className="bg-white border-4 border-ink-black rounded-2xl overflow-hidden shadow-hard flex flex-col hover:scale-[1.02] transition-transform duration-200 relative"
@@ -362,6 +365,7 @@ function ProgramsSection() {
 
             {/* Card body */}
             <div className="p-8 flex-grow">
+              <p className="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-5">{sub}</p>
               <ul className="space-y-4 mb-8">
                 {features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
@@ -378,12 +382,12 @@ function ProgramsSection() {
 
             <div className="p-6 pt-0">
               <a
-                href="https://wa.me/6281234567890"
+                href="https://wa.me/6285924136533"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`block w-full text-center py-3.5 border-2 border-ink-black rounded-xl ${btnColor} font-bold text-sm shadow-hard-sm btn-press transition-all duration-100`}
               >
-                Pilih Paket
+                Tanya dulu, yuk →
               </a>
             </div>
           </div>
@@ -436,8 +440,8 @@ function WhyNaraSection() {
             <div className="absolute -bottom-2 -left-2 w-full h-4 bg-spark-yellow -z-0 opacity-70" />
           </div>
           <p className="text-lg text-on-surface-variant mb-10 leading-relaxed">
-            Kami percaya setiap anak memiliki gaya belajar yang unik. Di Nara, kami tidak hanya memberikan materi,
-            tapi membangun kepercayaan diri anak untuk tumbuh lebih percaya diri.
+            Kami nggak jual mimpi nilai langsung naik. Yang kami jaga: anak jadi lebih nyaman, berani nanya,
+            dan nggak ketinggalan diam-diam. Sisanya nyusul dengan sendirinya.
           </p>
           <div className="flex flex-col gap-5">
             {whyItems.map(({ icon, bg, title, desc }) => (
@@ -542,7 +546,7 @@ function SparkProgramsSection() {
         </div>
         <h2 className="text-3xl md:text-4xl font-black text-ink-black mb-4">Pilih Program yang Tepat</h2>
         <p className="text-lg text-on-surface-variant max-w-2xl mx-auto">
-          Setiap anak punya &ldquo;percikan&rdquo; unik. Temukan program Spark yang dirancang untuk memicu kreativitas dan logika mereka.
+          Setiap anak beda kebutuhan — makanya programnya juga beda. Geser buat lihat mana yang paling pas, atau langsung chat, biar kami bantu pilihin.
         </p>
       </div>
 
@@ -630,17 +634,17 @@ function HowItWorksSection() {
 
 const locations = [
   {
-    name: 'Cabang Parung',
-    address: 'Jl. Raya Parung No. 12, Kel. Parung, Kec. Parung, Kab. Bogor',
-    phone: '0812-3456-7890',
+    name: 'Area Inkopad',
+    address: 'Komplek Inkopad, Tajurhalang, Kab. Bogor — dekat pintu masuk komplek.',
+    phone: '0859-2413-6533',
     mapUrl: 'https://maps.google.com',
     bg: '#4DB6AC',
     accent: '#FFD54F',
   },
   {
-    name: 'Cabang Inkopad',
-    address: 'Komplek Inkopad Blok C1, Tajurhalang, Kab. Bogor',
-    phone: '0812-9876-5432',
+    name: 'Area Parung',
+    address: 'Area Parung, Kab. Bogor — konfirmasi lokasi persis via WhatsApp.',
+    phone: '0859-2413-6533',
     mapUrl: 'https://maps.google.com',
     bg: '#2D6A6A',
     accent: '#FF7F67',
@@ -702,7 +706,7 @@ function LocationSection() {
                     Buka Google Maps
                   </a>
                   <a
-                    href={`tel:${phone.replace(/-/g, '')}`}
+                    href={`https://wa.me/${phone.replace(/-/g, '').replace('0', '62')}`}
                     className="flex items-center gap-2 font-bold text-sm text-nara-green hover:underline underline-offset-2"
                   >
                     <PhoneIcon />
@@ -738,10 +742,10 @@ function CTASection() {
 
       <div className="relative z-10 max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black text-ink-black mb-6 leading-tight">
-          Siap Memulai Petualangan Belajar?
+          Lagi cari les yang nggak bikin anak tertekan?
         </h2>
         <p className="text-lg font-medium text-on-surface mb-10 max-w-xl mx-auto">
-          Jangan tunda lagi masa depan cemerlang si buah hati. Konsultasi <strong>GRATIS</strong> sekarang juga!
+          Boleh ngobrol dulu — ceritain kebutuhan anak, kami bantu cariin yang paling cocok. Tanpa paksaan.
         </p>
 
         {/* Bounce arrow doodle */}
@@ -753,16 +757,16 @@ function CTASection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6285924136533"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-ink-black text-white font-bold px-10 py-4 border-2 border-ink-black rounded-2xl shadow-hard btn-press transition-all duration-100 text-base hover:bg-nara-green"
           >
             <WhatsAppIcon size={22} />
-            Hubungi di WhatsApp
+            Chat di WhatsApp, santai aja
           </a>
           <a
-            href="https://instagram.com/naraorivateacademy"
+            href="https://instagram.com/belajardinara_"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-transparent text-ink-black font-bold px-10 py-4 border-2 border-ink-black rounded-2xl hover:bg-white/50 transition-colors text-base"
@@ -799,7 +803,7 @@ function Footer() {
         </p>
         <div className="flex gap-3">
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6285924136533"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 bg-[#25D366] border-2 border-ink-black rounded-lg flex items-center justify-center hover:shadow-hard-sm transition-shadow"
@@ -808,7 +812,7 @@ function Footer() {
             <WhatsAppIcon size={18} />
           </a>
           <a
-            href="https://instagram.com/naraprivateacademy"
+            href="https://instagram.com/belajardinara_"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 bg-gradient-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] border-2 border-ink-black rounded-lg flex items-center justify-center hover:shadow-hard-sm transition-shadow"
@@ -842,10 +846,9 @@ function Footer() {
       <div>
         <h4 className="font-black text-ink-black uppercase tracking-widest text-sm mb-5">Kontak</h4>
         <ul className="space-y-3 text-sm text-on-surface-variant">
-          <li>📍 Parung & Inkopad, Kab. Bogor</li>
-          <li>📱 0812-3456-7890 (Parung)</li>
-          <li>📱 0812-9876-5432 (Inkopad)</li>
-          <li>📸 @naraprivateacademy</li>
+          <li>📍 Inkopad & Parung, Kab. Bogor</li>
+          <li>📱 0859-2413-6533 (WhatsApp)</li>
+          <li>📸 @belajardinara_</li>
         </ul>
       </div>
 
